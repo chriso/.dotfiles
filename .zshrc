@@ -39,10 +39,13 @@ on() {
     cd /Volumes/Vault/Repositories
     echo "$fg[green]Vault & keys enabled$reset_color"
 }
-
 off() {
     truecrypt -t -l > /dev/null 2>&1 && truecrypt -t -d
     ssh-add -d ~/.ssh/*.key >/dev/null 2>&1
     echo "$fg[yellow]Vault & keys disabled$reset_color"
+}
+clear() {
+    rm ~/.*history
+    echo "$fg[yellow]History cleared$reset_color"
 }
 
