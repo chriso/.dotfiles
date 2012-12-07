@@ -1,3 +1,9 @@
 .DS_Store
 .AppleDouble
 node_modules
+.Spotlight-V100
+.Trashes
+._*
+Thumbs.db
+Desktop.ini
+.vim/.vim
