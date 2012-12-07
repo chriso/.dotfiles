@@ -1,0 +1,25 @@
+#!/usr/bin/env expect
+
+log_user 0
+set timeout -1
+
+set home [lindex $argv 0]
+
+# Get the password
+stty -echo
+send_user -- "Password: "
+expect_user -re "(.*)\n"
+send_user "\n"
+set pass $expect_out(1,string)
+stty echo
+
+# Add ssh keys
+spawn ssh-add "$home/.ssh/ec2.key" "$home/.ssh/github.key"
+expect -re "^Enter passphrase.*" {send "$pass\n"}
+expect eof
+
+# Mount the TrueCrypt volume
+spawn truecrypt -t -k {} --protect-hidden=no --mount "$home/Documents/Vault" /Volumes/Vault
+expect -re "^Enter password.*" {send "$pass\n"}
+expect eof
+
