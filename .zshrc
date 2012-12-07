@@ -12,10 +12,8 @@ export SAVEHIST=1000
 export HISTFILE=~/.zhistory
 setopt inc_append_history
 
-# Setup path / prefer local
-PATH=/usr/local/mysql/bin:/usr/local/sbin:/usr/local/bin:$PATH
-
 # Exports
+export PATH=/usr/local/mysql/bin:/usr/local/sbin:/usr/local/bin:$PATH
 export CPP='cc -E'
 export CXX=c++
 export NODE_ENV=development
