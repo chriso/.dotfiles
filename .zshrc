@@ -31,19 +31,20 @@ alias gs='git status'
 alias hidefile="SetFile -a V $1"
 alias hosts="sudo vi /etc/hosts"
 alias unrar="unrar e"
-alias repos="cd /Volumes/Vault/Repositories/"
+alias repos="cd /Volumes/Repositories/"
 
-# Vault / keychain protection
+# Truecrypt volume & SSH keys
 on() {
     ~/.vault ~
-    cd /Volumes/Vault/Repositories
-    echo "$fg[green]Vault & keys enabled$reset_color"
+    echo "$fg[green]Truecrypt volumes & SSH keys enabled$reset_color"
 }
 off() {
-    truecrypt -t -l > /dev/null 2>&1 && truecrypt -t -d
+    truecrypt -t -l >/dev/null 2>&1 && truecrypt -t -d
     ssh-add -d ~/.ssh/*.key >/dev/null 2>&1
-    echo "$fg[yellow]Vault & keys disabled$reset_color"
+    echo "$fg[yellow]Truecrypt volumes & SSH keys disabled$reset_color"
 }
+
+# Clear history
 clear() {
     rm ~/.*history
     echo "$fg[yellow]History cleared$reset_color"
