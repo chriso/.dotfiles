@@ -50,3 +50,21 @@ clear() {
     echo "$fg[yellow]History cleared$reset_color"
 }
 
+# Proxy traffic through EC2
+networkservices() {
+    networksetup -listallnetworkservices | grep -v 'Bluetooth\|iPhone\|\*'
+}
+proxy() {
+    port=1456
+    networkservices | while read service; do
+        networksetup -setsocksfirewallproxy "$service" "127.0.0.1" $port
+        networksetup -setsocksfirewallproxystate "$service" on
+    done
+    ssh -D $port ec2
+}
+unproxy() {
+    networkservices | while read service; do
+        networksetup -setsocksfirewallproxystate "$service" off
+    done
+}
+
