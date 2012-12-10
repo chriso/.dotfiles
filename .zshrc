@@ -52,19 +52,20 @@ clear() {
 
 # Proxy traffic through EC2
 networkservices() {
-    networksetup -listallnetworkservices | grep -v 'Bluetooth\|iPhone\|\*'
+    networksetup -listallnetworkservices | grep -v 'Bluetooth\|iPhone\|FireWire\|\*'
 }
 proxy() {
     port=1456
     networkservices | while read service; do
-        networksetup -setsocksfirewallproxy "$service" "127.0.0.1" $port
-        networksetup -setsocksfirewallproxystate "$service" on
+        echo "Setting up SOCKS proxy for $service"
+        sudo networksetup -setsocksfirewallproxy "$service" "127.0.0.1" $port
+        sudo networksetup -setsocksfirewallproxystate "$service" on
     done
     ssh -D $port ec2
 }
 unproxy() {
     networkservices | while read service; do
-        networksetup -setsocksfirewallproxystate "$service" off
+        sudo networksetup -setsocksfirewallproxystate "$service" off
     done
 }
 
