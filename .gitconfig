@@ -9,7 +9,7 @@
     cp = cherry-pick -x
     s = status
     wd = diff --color-words
-    wdc = wd --cached
+    wdc = diff --color-words --cached
 [core]
     excludesfile = /Users/chris/.gitignore
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
