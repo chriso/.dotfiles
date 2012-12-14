@@ -30,7 +30,7 @@ alias ll='ls -lah'
 alias gs='git status'
 alias hidefile="SetFile -a V $1"
 alias hosts="sudo vi /etc/hosts"
-alias unrar="unrar e"
+alias unrar="unrar x"
 alias repos="cd /Volumes/Repositories/"
 
 # Truecrypt volume & SSH keys
