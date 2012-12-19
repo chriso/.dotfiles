@@ -13,7 +13,7 @@ export HISTFILE=~/.zhistory
 setopt inc_append_history
 
 # Exports
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin/:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$PATH
 export CPP='cc -E'
 export CXX=c++
 export NODE_ENV=development
