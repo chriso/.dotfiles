@@ -57,16 +57,18 @@ networkservices() {
 proxy() {
     port=1456
     networkservices | while read service; do
-        echo "Setting up SOCKS proxy for $service"
+        echo "$fg[green]Setting up SOCKS proxy for $service$reset_color"
         sudo networksetup -setsocksfirewallproxy "$service" "127.0.0.1" $port
         sudo networksetup -setsocksfirewallproxystate "$service" on
     done
-    ssh -D $port ec2
+    ssh -fND $port ec2
 }
 unproxy() {
     networkservices | while read service; do
         sudo networksetup -setsocksfirewallproxystate "$service" off
     done
+    ps aux | grep 'ssh -fND' | grep -v grep | awk '{print $2}' | xargs kill -9
+    echo "$fg[yellow]Proxy disabled$reset_color"
 }
 
 # Productive shortcuts
