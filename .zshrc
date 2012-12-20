@@ -13,10 +13,10 @@ export HISTFILE=~/.zhistory
 setopt inc_append_history
 
 # Exports
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$PATH
-export CPP='cc -E'
-export CXX=c++
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH # brew
+export PATH=/usr/local/share/npm/bin:$PATH       # npm
 export NODE_ENV=development
+export CXX=c++
 
 # Setup the prompt
 pre="%{$fg[red]%}"
@@ -29,8 +29,6 @@ alias ls="ls -G"
 alias ll='ls -lah'
 alias gs='git status'
 alias hidefile="SetFile -a V $1"
-alias hosts="sudo vi /etc/hosts"
-alias unrar="unrar x"
 alias repos="cd /Volumes/Repositories/"
 
 # Truecrypt volume & SSH keys
@@ -57,11 +55,11 @@ networkservices() {
 proxy() {
     port=1456
     networkservices | while read service; do
-        echo "$fg[green]Setting up SOCKS proxy for $service$reset_color"
         sudo networksetup -setsocksfirewallproxy "$service" "127.0.0.1" $port
         sudo networksetup -setsocksfirewallproxystate "$service" on
     done
     ssh -fND $port ec2
+    echo "$fg[green]Proxy enabled$reset_color"
 }
 unproxy() {
     networkservices | while read service; do
