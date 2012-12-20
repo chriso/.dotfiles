@@ -69,3 +69,17 @@ unproxy() {
     done
 }
 
+# Productive shortcuts
+productive() {
+    cat /etc/hosts > /tmp/hosts
+    cat ~/.unproductive | sed 's/^\(.*\)$/127.0.0.1 \1 #unproductive/g' >> /tmp/hosts
+    sudo mv /{tmp,etc}/hosts
+    dscacheutil -flushcache
+    echo "$fg[green]Unproductive hosts blocked$reset_color"
+}
+unproductive() {
+    cat /etc/hosts | grep -v '#unproductive' > /tmp/hosts
+    sudo mv /{tmp,etc}/hosts
+    dscacheutil -flushcache
+}
+
