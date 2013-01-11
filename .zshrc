@@ -31,6 +31,11 @@ alias gs='git status'
 alias hidefile="SetFile -a V $1"
 alias repos="cd /Volumes/Repositories/"
 
+# Prefer github.com/ggreer/the_silver_searcher over ack
+if command -v ag >/dev/null; then
+    alias ack='ag'
+fi
+
 # Truecrypt volume & SSH keys
 on() {
     ~/.vault ~
