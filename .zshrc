@@ -36,6 +36,11 @@ if command -v ag >/dev/null; then
     alias ack='ag'
 fi
 
+# Prefer gzcat over osx's weird zcat
+if command -v gzcat >/dev/null; then
+    alias zcat='gzcat'
+fi
+
 # Truecrypt volume & SSH keys
 on() {
     ~/.vault ~
