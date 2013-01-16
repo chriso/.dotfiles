@@ -18,6 +18,7 @@ set laststatus=2
 
 syntax on
 au FileType make set noexpandtab
+au BufRead,BufNewFile *.md set ft=markdown
 color desert
 nore ; :
 
