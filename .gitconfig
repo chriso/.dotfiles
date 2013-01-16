@@ -4,10 +4,6 @@
 [alias]
     lg = log -50 --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     diff = diff --color
-    dc = diff --color
-    pp = pull & push
-    cp = cherry-pick -x
-    s = status
     wd = diff --color-words
     wdc = diff --color-words --cached
 [core]
