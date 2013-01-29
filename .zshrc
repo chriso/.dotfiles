@@ -93,3 +93,14 @@ unproductive() {
     dscacheutil -flushcache
 }
 
+# Update all the things
+update() {
+    if command -v brew >/dev/null; then
+        brew update
+        brew upgrade
+    elif command -v apt-get >/dev/null; then
+        sudo apt-get update
+        sudo apt-get -y upgrade
+    fi
+}
+
