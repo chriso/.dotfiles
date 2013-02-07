@@ -25,11 +25,18 @@ post="%{$reset_color%}"
 PS1="${pre}%~${post} $ "
 
 # Aliases
-alias ls="ls -G"
 alias ll='ls -lah'
 alias gs='git status'
 alias hidefile="SetFile -a V $1"
 alias repos="cd /Volumes/Repositories/"
+
+# Colourise ls
+platform=`uname`
+if [[ $platform == "Darwin" ]]; then
+    alias ls="ls -G"
+elif [[ $platform == "Linux" ]]; then
+    alias ls="ls --color=auto"
+fi
 
 # Prefer github.com/ggreer/the_silver_searcher over ack
 if command -v ag >/dev/null; then
