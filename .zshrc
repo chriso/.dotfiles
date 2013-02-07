@@ -98,6 +98,11 @@ update() {
     if command -v brew >/dev/null; then
         brew update
         brew upgrade
+    elif command -v emerge >/dev/null; then
+        # Use eix-sync if it's available
+        (command -v eix-sync >/dev/null && eix-sync) \
+            || emerge --sync
+        emerge -uavD world
     elif command -v apt-get >/dev/null; then
         sudo apt-get update
         sudo apt-get -y upgrade
