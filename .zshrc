@@ -104,8 +104,8 @@ update() {
             || emerge --sync
         emerge -uavD world
     elif command -v apt-get >/dev/null; then
-        sudo apt-get update
-        sudo apt-get -y upgrade
+        apt-get update
+        apt-get -y upgrade
     fi
 }
 
