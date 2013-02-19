@@ -66,7 +66,7 @@ clear() {
     echo "$fg[yellow]History cleared$reset_color"
 }
 
-# Proxy traffic through EC2
+# Proxy traffic through ssh
 networkservices() {
     networksetup -listallnetworkservices | grep -v 'Bluetooth\|iPhone\|FireWire\|\*'
 }
@@ -76,7 +76,7 @@ proxy() {
         sudo networksetup -setsocksfirewallproxy "$service" "127.0.0.1" $port
         sudo networksetup -setsocksfirewallproxystate "$service" on
     done
-    ssh -fND $port ec2
+    ssh -fND $port ocean
     echo "$fg[green]Proxy enabled$reset_color"
 }
 unproxy() {
