@@ -110,7 +110,7 @@ update() {
         # Use eix-sync if it's available
         (command -v eix-sync >/dev/null && eix-sync -C '--ask=n') \
             || emerge --sync --ask=n
-        emerge -uavD world
+        emerge -uav world
     elif command -v apt-get >/dev/null; then
         apt-get update
         apt-get -y upgrade
