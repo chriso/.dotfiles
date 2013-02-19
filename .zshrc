@@ -7,6 +7,7 @@ autoload -U compinit
 compinit
 autoload -U colors
 colors
+zstyle ':completion::complete:*' use-cache 1
 export HISTSIZE=1000
 export SAVEHIST=1000
 export HISTFILE=~/.zhistory
