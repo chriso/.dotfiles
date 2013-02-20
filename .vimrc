@@ -30,5 +30,3 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
-nnoremap <silent> tt :CommandT<CR>
-
