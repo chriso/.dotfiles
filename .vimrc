@@ -30,3 +30,6 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
+" Ignore node_modules in CtrlP
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|node_modules)$'
+
