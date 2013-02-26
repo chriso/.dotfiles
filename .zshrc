@@ -117,3 +117,14 @@ update() {
     fi
 }
 
+# Better tmux window titles
+if [ -n "$TMUX" ]; then
+    precmd () {
+        tmux rename-window ${PWD//*\//};
+    }
+    ssh() {
+        tmux rename-window "$*"
+        command ssh "$@"
+    }
+fi
+
