@@ -1,0 +1,12 @@
+# Truecrypt volume & SSH keys
+on() {
+    ~/.zsh/scripts/vault.expect ~
+    echo "$fg[green]Truecrypt volumes & SSH keys enabled$reset_color"
+}
+
+off() {
+    truecrypt -t -l >/dev/null 2>&1 && truecrypt -t -d
+    ssh-add -d ~/.ssh/*.key >/dev/null 2>&1
+    echo "$fg[yellow]Truecrypt volumes & SSH keys disabled$reset_color"
+}
+

@@ -1,0 +1,24 @@
+# Platform-specific additions
+platform=`uname`
+if [[ $platform == "Darwin" ]]; then
+    alias ls="ls -G"
+    alias hidefile="SetFile -a V $1"
+    alias repos="cd /Volumes/Repositories/"
+elif [[ $platform == "Linux" ]]; then
+    alias ls="ls --color=auto"
+fi
+
+# Lazy
+alias ll='ls -lah'
+alias gs='git status'
+
+# Prefer github.com/ggreer/the_silver_searcher over ack
+if command -v ag >/dev/null; then
+    alias ack='ag'
+fi
+
+# Prefer gzcat over osx's weird zcat
+if command -v gzcat >/dev/null; then
+    alias zcat='gzcat'
+fi
+

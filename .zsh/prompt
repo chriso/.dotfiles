@@ -1,0 +1,9 @@
+host_name=mac
+host_colour=red
+root_colour=blue
+
+pre="%{$fg[$host_colour]%}"
+[ "${UID}" = 0 ] && pre="%{$fg[$root_colour]%}"
+post="%{$reset_color%}"
+PS1="${pre}%~ ($host_name)${post} $ "
+
