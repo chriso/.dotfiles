@@ -6,6 +6,7 @@
     diff = diff --color
     wd = diff --color-words
     wdc = diff --color-words --cached
+    todo = grep -n -F -I -e TODO -e FIXME
 [core]
     excludesfile = /Users/chris/.gitignore
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
