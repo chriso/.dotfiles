@@ -30,6 +30,9 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
+" Fix git gutter highlighting
+highlight clear SignColumn
+
 " Ignore node_modules in CtrlP
 let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|node_modules)$'
 
