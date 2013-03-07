@@ -5,7 +5,7 @@
 # Implemented by Tim Caswell <tim@creationix.com>
 # with much bash help from Matthew Ranney
 
-NVM_DIR=$(cd ~/.zsh/node && pwd)
+NVM_DIR=$(cd ~/.zsh/tmp && pwd)
 
 # Make zsh glob matching behave same as bash
 # This fixes the "zsh: no matches found" errors
