@@ -22,3 +22,8 @@ if command -v gzcat >/dev/null; then
     alias zcat='gzcat'
 fi
 
+# Set the title
+function title() {
+    echo -n -e "\033]0;$1\007"
+}
+
