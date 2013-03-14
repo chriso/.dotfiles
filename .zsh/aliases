@@ -3,7 +3,6 @@ platform=`uname`
 if [[ $platform == "Darwin" ]]; then
     alias ls="ls -G"
     alias hidefile="SetFile -a V $1"
-    alias repos="cd /Volumes/Repositories/"
 elif [[ $platform == "Linux" ]]; then
     alias ls="ls --color=auto"
 fi
