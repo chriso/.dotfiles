@@ -24,8 +24,8 @@ nore ; :
 
 call pathogen#infect()
 
-" Status bar
-hi StatusLine ctermbg=White ctermfg=Black
+" Hide the status bar
+:set laststatus=0
 
 " Open a file at the last cursor position
 if has("autocmd")
