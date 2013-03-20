@@ -24,6 +24,9 @@ nore ; :
 
 call pathogen#infect()
 
+" Status bar
+hi StatusLine ctermbg=White ctermfg=Black
+
 " Open a file at the last cursor position
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
