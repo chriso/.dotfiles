@@ -9,7 +9,7 @@ fi
 
 # Lazy
 alias ll='ls -lah'
-alias gs='git status'
+alias gs='git status -sb'
 
 # Prefer github.com/ggreer/the_silver_searcher over ack
 if command -v ag >/dev/null; then
