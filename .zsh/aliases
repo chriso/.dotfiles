@@ -9,7 +9,7 @@ fi
 
 # Lazy
 alias ll='ls -lah'
-alias gs='git status -sb'
+alias gs='git status --short --branch --untracked-files=no'
 
 # Prefer github.com/ggreer/the_silver_searcher over ack
 if command -v ag >/dev/null; then
