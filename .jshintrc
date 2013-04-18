@@ -10,7 +10,8 @@
     "waits": false,
     "waitsFor": false,
     "runs": false,
-    "gc": false
+    "gc": false,
+    "setImmediate": false
   },
   "node" : true,
   "es5" : true,
