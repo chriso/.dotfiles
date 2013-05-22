@@ -23,8 +23,3 @@ spawn truecrypt -t -k {} --protect-hidden=no --mount "$home/Documents/Repositori
 expect -re "^Enter password.*" {send "$pass\n"}
 expect eof
 
-# Mount the docs volume
-spawn truecrypt -t -k {} --protect-hidden=no --mount "$home/Dropbox/Documents" /Volumes/Documents
-expect -re "^Enter password.*" {send "$pass\n"}
-expect eof
-
