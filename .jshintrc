@@ -12,7 +12,8 @@
     "waitsFor": false,
     "runs": false,
     "gc": false,
-    "setImmediate": false
+    "setImmediate": false,
+    "$": false
   },
   "node" : true,
   "browser" : true,
