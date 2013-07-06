@@ -7,7 +7,7 @@ update() {
         # Use eix-sync if it's available
         (command -v eix-sync >/dev/null && eix-sync -C '--ask=n') \
             || emerge --sync --ask=n
-        emerge --update --deep --newuse --with-bdeps=y world
+        emerge --update --deep --newuse --with-bdeps=y world @preserved-rebuild
     elif command -v apt-get >/dev/null; then
         apt-get update
         apt-get -y upgrade

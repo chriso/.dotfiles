@@ -17,8 +17,9 @@ set smartcase
 set laststatus=2
 
 syntax on
-au FileType make set noexpandtab
-au BufRead,BufNewFile *.md set ft=markdown
+au FileType make setl noexpandtab
+au BufRead,BufNewFile *.html setl sw=2 sts=2 et
+au BufRead,BufNewFile *.md setl ft=markdown
 color desert
 nore ; :
 
@@ -38,4 +39,5 @@ highlight clear SignColumn
 
 " Ignore node_modules in CtrlP
 let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|node_modules)$'
+
 
