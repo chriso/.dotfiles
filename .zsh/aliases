@@ -16,6 +16,11 @@ if command -v ag >/dev/null; then
     alias ack='ag'
 fi
 
+# Use the ca-bundle from homebrew if it's available
+if [ -f /usr/local/opt/curl-ca-bundle/share/ca-bundle.crt ]; then
+    export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+fi
+
 # Prefer gzcat over osx's weird zcat
 if command -v gzcat >/dev/null; then
     alias zcat='gzcat'
