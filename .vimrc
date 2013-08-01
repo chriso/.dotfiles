@@ -26,7 +26,10 @@ nore ; :
 call pathogen#infect()
 
 " Hide the status bar
-:set laststatus=0
+set laststatus=0
+
+" Fix backspace
+set backspace=indent,eol,start
 
 " Open a file at the last cursor position
 if has("autocmd")
