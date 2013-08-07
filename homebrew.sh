@@ -7,7 +7,7 @@ brew tap homebrew/dupes homebrew/versions
 # Want a newer openssh?
 # http://www.dctrwatson.com/2013/07/how-to-update-openssh-on-mac-os-x/
 
-brew install --with-clang --HEAD llvm
+brew install llvm --HEAD --with-clang --shared --with-asan
 
 brew install --HEAD vim
 
