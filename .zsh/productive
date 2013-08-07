@@ -1,7 +1,6 @@
 unproductive_hosts=`cat << HOSTS
 news.ycombinator.com
 reddit.com
-youtube.com
 techpowerup.com
 facebook.com
 twitter.com
