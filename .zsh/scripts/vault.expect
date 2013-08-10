@@ -14,7 +14,7 @@ set pass $expect_out(1,string)
 stty echo
 
 # Add ssh keys
-spawn ssh-add "$home/.ssh/ocean.key" "$home/.ssh/github.key"
+spawn $home/.zsh/scripts/add_keys.sh
 expect -re "^Enter passphrase.*" {send "$pass\n"}
 expect eof
 
