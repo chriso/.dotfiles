@@ -9,3 +9,4 @@ Desktop.ini
 .vim/.vim
 .vim/.netrwhist
 .zsh/tmp
+*.pyc

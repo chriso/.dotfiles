@@ -13,7 +13,9 @@
     "runs": false,
     "gc": false,
     "setImmediate": false,
-    "$": false
+    "$": false,
+    "inject": false,
+    "angular": false
   },
   "node" : true,
   "browser" : true,
