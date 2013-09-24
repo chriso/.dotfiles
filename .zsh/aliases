@@ -12,7 +12,6 @@ alias ll='ls -lh'
 alias gs='git status --short --branch'
 
 # Fix encoding issues
-alias tmux='LC_ALL=en_AU.utf8 tmux'
 alias sed='LC_ALL=C sed'
 alias grep='LC_ALL=C grep'
 
