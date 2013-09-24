@@ -19,7 +19,7 @@ expect -re "^Enter passphrase.*" {send "$pass\n"}
 expect eof
 
 # Mount the repos volume
-spawn truecrypt -t -k {} --protect-hidden=no --mount "$home/Documents/Repositories" /Volumes/Repositories
+spawn truecrypt -t -k {} --protect-hidden=no --mount "$home/Repositories" /Volumes/Repositories
 expect -re "^Enter password.*" {send "$pass\n"}
 expect eof
 
