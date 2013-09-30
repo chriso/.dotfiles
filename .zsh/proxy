@@ -9,7 +9,7 @@ proxy() {
         sudo networksetup -setsocksfirewallproxy "$service" "127.0.0.1" $port
         sudo networksetup -setsocksfirewallproxystate "$service" on
     done
-    ssh -fND $port ocean
+    ssh -fND $port ocean >/dev/null 2>&1
     echo "$fg[green]Proxy enabled$reset_color"
 }
 
