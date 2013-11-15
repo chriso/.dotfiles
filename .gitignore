@@ -10,3 +10,4 @@ Desktop.ini
 .vim/.netrwhist
 .zsh/tmp
 *.pyc
+npm-debug.log
