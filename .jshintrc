@@ -15,7 +15,10 @@
     "setImmediate": false,
     "$": false,
     "inject": false,
-    "angular": false
+    "angular": false,
+    "browser": false,
+    "element": false,
+    "input": false
   },
   "node" : true,
   "browser" : true,
