@@ -1,10 +1,10 @@
-unproductive_hosts=`cat << HOSTS
+unproductive_hosts=$(cat << HOSTS
 news.ycombinator.com
 reddit.com
 techpowerup.com
 facebook.com
 twitter.com
-HOSTS`
+HOSTS)
 
 # Productive shortcuts
 productive() {

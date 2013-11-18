@@ -1,5 +1,5 @@
 # Platform-specific additions
-platform=`uname`
+platform=$(uname)
 if [[ $platform == "Darwin" ]]; then
     alias ls="ls -G"
     alias hidefile="SetFile -a V $1"
