@@ -1,0 +1,4 @@
+platform=$(uname)
+if [[ $platform == "Darwin" ]]; then
+    ulimit -n 1024;
+fi
