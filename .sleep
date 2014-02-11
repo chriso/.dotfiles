@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Remove SSH keys from the keychain
+ssh-add -l &>/dev/null && \
+    ssh-add -l | awk '{ print $3 }' | xargs -n1 ssh-add -d
+
+# Close the TrueCrypt vault
+/usr/local/bin/truecrypt -t -d -f
