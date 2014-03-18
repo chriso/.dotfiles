@@ -1,8 +1,15 @@
 #!/bin/sh
 
+# The following script uses sleepwatcher (brew install sleepwatcher)
+# to run some actions when the Macbook lid is closed
+
 # Remove SSH keys from the keychain
 ssh-add -l &>/dev/null && \
     ssh-add -l | awk '{ print $3 }' | xargs -n1 ssh-add -d
 
 # Close the TrueCrypt vault
 /usr/local/bin/truecrypt -t -d -f
+
+# Close Chrome and force the waking user to re-enter passwords
+killall 'Google Chrome' && sync
+rm -rf ~/Library/Application\ Support/Google/Chrome/Default/{Last,History,Archived,Shortcuts}*
