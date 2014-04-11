@@ -20,7 +20,7 @@ Host github.com
 
 # Personal
 Host ocean
-    HostName 107.170.243.147
+    HostName node.io
     IdentityFile ~/.ssh/ocean.key
     User root
 Host raspi
@@ -43,6 +43,7 @@ Host km
     IdentityFile ~/.ssh/kissmetrics.key
 Host *.kissmetrics.com
     IdentityFile ~/.ssh/kissmetrics.key
-    User root
-Host *.stage.kissmetrics.com
+Host dn*.stage.kissmetrics.com
     User cohara
+Host dn*.kissmetrics.com
+    User root
