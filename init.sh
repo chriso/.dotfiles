@@ -14,4 +14,8 @@ find $dir/.[^.]* -maxdepth 0 | grep -v '.git$' | while read src; do
     (ln -s $src ~/$dest 2>/dev/null && echo "$dest linked") || echo "$dest already exists!"
 done
 
+# Link SSH config
+ln -s $dir/ssh_config ~/.ssh/config
+chmod 600 ~/.ssh/config
+
 popd

@@ -1,0 +1,48 @@
+Compression yes
+GSSAPIAuthentication no
+PasswordAuthentication no
+IdentitiesOnly yes
+
+# Forward agent to trusted hosts
+Host art ocean raspi km
+    ForwardAgent yes
+
+# Disable compression for local hosts
+Host raspi km
+    Compression no
+
+# Code repositories
+Host bitbucket.org
+    IdentityFile ~/.ssh/bitbucket.key
+Host github.com
+    IdentityFile ~/.ssh/github.key
+    PasswordAuthentication yes
+
+# Personal
+Host ocean
+    HostName 107.170.243.147
+    IdentityFile ~/.ssh/ocean.key
+    User root
+Host raspi
+    HostName ohara.in
+    IdentityFile ~/.ssh/ocean.key
+    User root
+
+# SydneyStockholm
+Host art staging dlbox backup
+    User chriso
+    IdentityFile ~/.ssh/fellt.key
+Host art
+    HostName wp.secure.fellt.com
+
+# KISSmetrics
+Host km
+    HostName localhost
+    Port 2222
+    User root
+    IdentityFile ~/.ssh/kissmetrics.key
+Host *.kissmetrics.com
+    IdentityFile ~/.ssh/kissmetrics.key
+    User root
+Host *.stage.kissmetrics.com
+    User cohara
