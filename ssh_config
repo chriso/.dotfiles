@@ -29,11 +29,13 @@ Host raspi
     User root
 
 # SydneyStockholm
-Host art staging dlbox backup
+Host art staging dlbox backup office
     User chriso
     IdentityFile ~/.ssh/fellt.key
 Host art
     HostName wp.secure.fellt.com
+Host office
+    Hostname wrk.no-ip.org
 
 # KISSmetrics
 Host km
