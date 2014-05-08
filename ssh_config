@@ -34,6 +34,7 @@ Host art staging dlbox backup office
     IdentityFile ~/.ssh/fellt.key
 Host art
     HostName wp.secure.fellt.com
+    Port 58184
 Host office
     Hostname wrk.no-ip.org
 
