@@ -8,6 +8,7 @@
     wdc = diff --color-words --cached
     todo = grep -n -F -I -e TODO -e FIXME
     df = diff --stat
+    clean-branches = ! git branch --merged | grep chriso | xargs -n1 git branch -D
 [core]
     excludesfile = ~/.gitignore
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
