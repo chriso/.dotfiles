@@ -13,13 +13,13 @@ send_user "\n"
 set pass $expect_out(1,string)
 stty echo
 
-# Add ssh keys
-spawn $home/.zsh/scripts/add_keys.sh
-expect -re "^Enter passphrase.*" {send "$pass\n"}
-expect eof
-
 # Mount the repos volume
 spawn truecrypt -t -k {} --protect-hidden=no --mount "$home/Documents/Repositories" /Volumes/Repositories
 expect -re "^Enter password.*" {send "$pass\n"}
+expect eof
+
+# Add ssh keys
+spawn $home/.zsh/scripts/add_keys.sh
+expect -re "^Enter passphrase.*" {send "$pass\n"}
 expect eof
 
