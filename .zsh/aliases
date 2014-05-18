@@ -15,11 +15,6 @@ alias gs='git status --short --branch'
 alias sed='LC_ALL=C sed'
 alias grep='LC_ALL=C grep'
 
-# Prefer github.com/ggreer/the_silver_searcher over ack
-if command -v ag >/dev/null; then
-    alias ack='ag'
-fi
-
 # Use the ca-bundle from homebrew if it's available
 if [ -f /usr/local/opt/curl-ca-bundle/share/ca-bundle.crt ]; then
     export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt

@@ -14,33 +14,30 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-set laststatus=2
+set laststatus=0
+set backspace=indent,eol,start
 
 syntax on
-au FileType make setl noexpandtab
-au BufRead,BufNewFile *.html setl sw=2 sts=2 et
-au BufRead,BufNewFile *.md setl ft=markdown
+filetype plugin indent on
+
+au FileType ruby setl ts=2 sw=2 sts=2 et
+au FileType html setl ts=2 sw=2 sts=2 et
+
+au BufEnter * set nofen
+
 color desert
 nore ; :
 
 call pathogen#infect()
 
-" Hide the status bar
-set laststatus=0
-
-" Fix backspace
-set backspace=indent,eol,start
-
-" Open a file at the last cursor position
+" open a file at the last cursor position
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal g'\"" | endif
 endif
 
-" Fix git gutter highlighting
+" add additional ignores to CtrlP
+let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules|vendor)$'
+
+" fix git gutter highlighting
 highlight clear SignColumn
-
-" Ignore node_modules in CtrlP
-let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|node_modules)$'
-
-
