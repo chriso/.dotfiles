@@ -46,7 +46,7 @@ Host km
     IdentityFile ~/.ssh/kissmetrics.key
 Host *.kissmetrics.com
     IdentityFile ~/.ssh/kissmetrics.key
-Host dn*.stage.kissmetrics.com
+Host *.stage.kissmetrics.com, km*.kissmetrics.com
     User cohara
 Host dn*.kissmetrics.com
     User root
