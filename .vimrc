@@ -36,8 +36,5 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
-" add additional ignores to CtrlP
-let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules|vendor)$'
-
 " fix git gutter highlighting
 highlight clear SignColumn
