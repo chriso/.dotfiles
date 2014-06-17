@@ -13,3 +13,4 @@ ssh-add -l &>/dev/null && \
 # Close Chrome and force the waking user to re-enter passwords
 killall 'Google Chrome' && sync
 rm -rf ~/Library/Application\ Support/Google/Chrome/Default/{Last,History,Archived,Shortcuts}*
+rm -rf ~/Library/Caches/Google/Chrome/Default
