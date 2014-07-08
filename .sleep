@@ -3,10 +3,15 @@
 # The following script uses sleepwatcher (brew install sleepwatcher)
 # to run some actions when the Macbook lid is closed
 
+# Remove SSH keys from the keychain
+ssh-add -l &>/dev/null && \
+    ssh-add -l | awk '{ print $3 }' | xargs -n1 ssh-add -d
+
+# Close Chrome, since the profile lives in the vault
+killall "Google Chrome"
+
+# Sync disks
+sync
+
 # Close the vault
 hdiutil eject -force /Volumes/Repositories
-
-# Close Chrome and force the waking user to re-enter passwords
-killall 'Google Chrome' && sync
-rm -rf ~/Library/Application\ Support/Google/Chrome/Default/{Last,History,Archived,Shortcuts}*
-rm -rf ~/Library/Caches/Google/Chrome/Default
