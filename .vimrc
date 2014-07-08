@@ -1,3 +1,5 @@
+set runtimepath+=$GOROOT/misc/vim
+
 set nocompatible
 set number
 set ruler
@@ -17,8 +19,8 @@ set smartcase
 set laststatus=0
 set backspace=indent,eol,start
 
-syntax on
 filetype plugin indent on
+syntax on
 
 au FileType ruby setl ts=2 sw=2 sts=2 et
 au FileType html setl ts=2 sw=2 sts=2 et
