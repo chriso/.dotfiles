@@ -24,6 +24,7 @@ syntax on
 
 au FileType ruby setl ts=2 sw=2 sts=2 et
 au FileType html setl ts=2 sw=2 sts=2 et
+au FileType go setl noet
 
 au BufEnter * set nofen
 

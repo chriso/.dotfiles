@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/Volumes/Repositories/go/bin:/usr/sbin:/sbin:$PATH
 export NODE_ENV=development
 export CFLAGS="-O3 -pipe"
 export CXXFLAGS="${CFLAGS}"
