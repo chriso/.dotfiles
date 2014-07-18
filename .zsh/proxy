@@ -13,15 +13,6 @@ proxy() {
     echo "$fg[green]Proxy enabled$reset_color"
 }
 
-torproxy() {
-    port=9050
-    networkservices | while read service; do
-        sudo networksetup -setsocksfirewallproxy "$service" "127.0.0.1" $port
-        sudo networksetup -setsocksfirewallproxystate "$service" on
-    done
-    nohup tor 2>&1 >/dev/null &
-}
-
 unproxy() {
     networkservices | while read service; do
         sudo networksetup -setsocksfirewallproxystate "$service" off

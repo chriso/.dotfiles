@@ -1,7 +1,10 @@
 # Update all the things
 update() {
     if command -v brew >/dev/null; then
-        brew update && brew upgrade && brew cleanup && rm -rf "$(brew --cache)/*"
+        brew update && brew upgrade
+        brew cleanup
+        rm -rf $(brew --cache)
+        mkdir -p $(brew --cache)
     elif command -v emerge >/dev/null; then
         # Use eix-sync if it's available
         (command -v eix-sync >/dev/null && eix-sync -C '--ask=n') \

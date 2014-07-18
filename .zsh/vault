@@ -1,5 +1,5 @@
 function on() {
-    hdiutil attach ~/Repositories.dmg
+    hdiutil attach ~/Documents/Repositories.dmg
     ssh-add ~/.ssh/*.key
 }
 
