@@ -33,6 +33,9 @@ nore ; :
 
 call pathogen#infect()
 
+" highlight lines >= 80 width
+match ErrorMsg '\%>79v.\+'
+
 " open a file at the last cursor position
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
