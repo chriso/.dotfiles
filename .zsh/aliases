@@ -15,6 +15,9 @@ alias gs='git status --short --branch'
 alias sed='LC_ALL=C sed'
 alias grep='LC_ALL=C grep'
 
+# Fix clang path
+alias scan-build='scan-build --use-analyzer=/usr/local/bin/clang'
+
 # Prefer gzcat over osx's weird zcat
 if command -v gzcat >/dev/null; then
     alias zcat='gzcat'
