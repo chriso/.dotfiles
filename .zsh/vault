@@ -1,12 +1,11 @@
 function on() {
-    hdiutil attach ~/Documents/Repositories.dmg
-    ssh-add ~/.ssh/*.key
+    hdiutil attach ~/Documents/Repositories.dmg && \
+        ssh-add ~/.ssh/*.key
 }
 
 function off() {
     ssh-add -l &>/dev/null && \
         ssh-add -l | awk '{ print $3 }' | xargs -n1 ssh-add -d
-    killall "Google Chrome"
     sync
     hdiutil eject -force /Volumes/Repositories
 }

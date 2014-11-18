@@ -33,8 +33,8 @@ nore ; :
 
 call pathogen#infect()
 
-" highlight lines >= 80 width
-match ErrorMsg '\%>79v.\+'
+" highlight lines > 80 width
+match ErrorMsg '\%>80v.\+'
 
 " open a file at the last cursor position
 if has("autocmd")
