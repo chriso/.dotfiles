@@ -20,7 +20,7 @@ Host github.com
 
 # Personal
 Host ocean
-    HostName node.io
+    HostName 107.170.243.147
     IdentityFile ~/.ssh/ocean.key
     User root
 Host raspi
