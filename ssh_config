@@ -4,11 +4,11 @@ PasswordAuthentication no
 IdentitiesOnly yes
 
 # Forward agent to trusted hosts
-Host art ocean raspi km
+Host art km
     ForwardAgent yes
 
 # Disable compression for local hosts
-Host raspi km
+Host km
     Compression no
 
 # Code repositories
@@ -17,16 +17,6 @@ Host bitbucket.org
 Host github.com
     IdentityFile ~/.ssh/github.key
     PasswordAuthentication yes
-
-# Personal
-Host ocean
-    HostName 107.170.243.147
-    IdentityFile ~/.ssh/ocean.key
-    User root
-Host raspi
-    HostName ohara.in
-    IdentityFile ~/.ssh/ocean.key
-    User root
 
 # SydneyStockholm
 Host art staging dlbox backup office
