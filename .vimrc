@@ -1,5 +1,3 @@
-set runtimepath+=$GOROOT/misc/vim
-
 set nocompatible
 set number
 set ruler
