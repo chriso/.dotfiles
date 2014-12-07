@@ -1,8 +1,0 @@
-_Z_DATA=~/.zsh/tmp/z_dirs
-
-if [ ! -e "$_Z_DATA" ]; then
-    touch "$_Z_DATA"
-fi
-
-source ~/.zsh/scripts/z.sh
-

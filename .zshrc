@@ -1,7 +1,76 @@
 [ -z "$PS1" ] && return
 
-# Load all plugins in ~/.zsh
-find ~/.zsh/* -maxdepth 0 -type f | while read plugin; do
-    source $plugin
-done
+# Enable colour
+autoload -U colors && colors
 
+# Enable completion
+autoload -U compinit && compinit
+zstyle ':completion::complete:*' use-cache 1
+
+# Enable history
+HISTSIZE=20000
+SAVEHIST=20000
+HISTFILE=~/.zhistory
+setopt inc_append_history
+bindkey '^R' history-incremental-search-backward
+
+# Setup my work dir
+REPOS=/Volumes/Repositories
+
+# Quick, platform-specific aliases
+if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]]; then
+    alias ls="ls -G"
+    alias hidefile="SetFile -a V $1"
+    alias zcat="gzcat"
+    alias scan-build="scan-build --use-analyzer=/usr/local/bin/clang"
+else
+    alias ls="ls --color=auto"
+fi
+
+# Lazy shortcuts
+alias ll="ls -lh"
+alias gs="git status --short --branch"
+alias pylint="pylint --rcfile=tox.ini --report=n --unsafe-load-any-extension=y"
+
+# Fix encoding issues
+alias sed="LC_ALL=C sed"
+alias grep="LC_ALL=C grep"
+
+# Setup compiler options
+export CFLAGS="-O3 -pipe -march=native"
+export CXXFLAGS="$CFLAGS"
+export CXX=c++
+
+# Setup Golang paths
+export GOPATH="$REPOS/go"
+export PATH="$PATH:$GOPATH/bin"
+
+# Add git info to the prompt
+setopt prompt_subst
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' actionformats '%F{1}%b%F{3}|%F{1}%a%f '
+zstyle ':vcs_info:*' formats '%F{3}%b%f '
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' disable bzr cdv cvs darcs fossil hg mtn p4 svk svn tla
+vcs_info_wrapper() {
+    vcs_info && [ -n "$vcs_info_msg_0_" ] && echo "$vcs_info_msg_0_"
+}
+
+PS1="$fg[green]%~ (air)$reset_color \$(vcs_info_wrapper)$ "
+
+# Use z for directory completion
+source ~/.zsh/z.sh
+
+# Contextual tmux window titles
+[ -n "$TMUX" ] && precmd () { tmux rename-window ${PWD//*\//}; }
+
+# Mount repositories and then add SSH keys to the keychain
+on() {
+    hdiutil attach ~/Documents/Repositories.dmg && \
+        ssh-add ~/.ssh/*.key
+}
+off() {
+    ssh-add -l &>/dev/null && \
+        ssh-add -l | awk '{ print $3 }' | xargs -n1 ssh-add -d
+    hdiutil eject -force "$REPOS"
+}

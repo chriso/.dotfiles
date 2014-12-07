@@ -1,4 +1,0 @@
-platform=$(uname)
-if [[ $platform == "Darwin" ]]; then
-    ulimit -n 8192;
-fi
