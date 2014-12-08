@@ -15,7 +15,7 @@ setopt inc_append_history
 bindkey '^R' history-incremental-search-backward
 
 # Setup my work dir
-REPOS=/Volumes/Repositories
+export REPOS=/Volumes/Repositories
 
 # Quick, platform-specific aliases
 if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]]; then
