@@ -56,7 +56,7 @@ vcs_info_wrapper() {
     vcs_info && [ -n "$vcs_info_msg_0_" ] && echo "$vcs_info_msg_0_"
 }
 
-PS1="$fg[green]%~ (air)$reset_color \$(vcs_info_wrapper)$ "
+PS1="%{$fg[green]%}%~ (air)%{$reset_color%} \$(vcs_info_wrapper)$ "
 
 # Use z for directory completion
 source ~/.zsh/z.sh
