@@ -42,8 +42,12 @@ export CXXFLAGS="$CFLAGS"
 export CXX=c++
 
 # Setup Golang paths
-export GOPATH="$REPOS/go"
+export GOPATH="$REPOS/personal/go"
 export PATH="$PATH:$GOPATH/bin"
+
+# Setup Ruby via RVM
+source "$HOME/.rvm/scripts/rvm"
+export PATH="$PATH:$HOME/.rvm/bin"
 
 # Add git info to the prompt
 setopt prompt_subst
