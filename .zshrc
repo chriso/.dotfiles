@@ -15,7 +15,7 @@ setopt inc_append_history
 bindkey '^R' history-incremental-search-backward
 
 # Setup my work dir
-export REPOS=/Volumes/Repositories
+export REPOS="$HOME/Documents/repositories"
 
 alias ls="ls -G"
 alias ll="ls -lh"
@@ -64,13 +64,5 @@ source ~/.zsh/z.sh
 # Contextual tmux window titles
 [ -n "$TMUX" ] && precmd () { tmux rename-window ${PWD//*\//}; }
 
-# Mount repositories and then add SSH keys to the keychain
-on() {
-    hdiutil attach ~/Documents/Repositories.dmg && \
-        ssh-add ~/.ssh/*.key
-}
-off() {
-    ssh-add -l &>/dev/null && \
-        ssh-add -l | awk '{ print $3 }' | xargs -n1 ssh-add -d
-    hdiutil eject -force "$REPOS"
-}
+# Add SSH keys to the keychain
+on() { ssh-add ~/.ssh/*.key }
