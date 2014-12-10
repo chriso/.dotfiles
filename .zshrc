@@ -21,6 +21,7 @@ alias ls="ls -G"
 alias ll="ls -lh"
 alias sed="LC_ALL=C sed"
 alias grep="LC_ALL=C grep"
+alias sort="LC_ALL=C sort"
 alias gs="git status --short --branch"
 
 # Mac-specific
