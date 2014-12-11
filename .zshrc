@@ -39,7 +39,7 @@ export CXX=c++
 
 # Setup Golang paths
 export GOPATH="$REPOS/personal/go"
-export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin"
 
 # Setup Ruby via RVM
 source "$HOME/.rvm/scripts/rvm"
