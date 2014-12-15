@@ -33,7 +33,7 @@ alias pylint="pylint --rcfile=tox.ini --report=n --unsafe-load-any-extension=y"
 alias csshx='csshx -c ~/.csshx_config'
 
 # Setup compiler options
-export CFLAGS="-O3 -pipe -march=native"
+export CFLAGS="-O3 -pipe"
 export CXXFLAGS="$CFLAGS"
 export CXX=c++
 
