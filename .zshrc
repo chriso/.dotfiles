@@ -37,6 +37,9 @@ export CFLAGS="-O3 -pipe -march=native"
 export CXXFLAGS="$CFLAGS"
 export CXX=c++
 
+# Add path required by homebrew
+export PATH="/usr/local/sbin:$PATH"
+
 # Setup Golang paths
 export GOPATH="$REPOS/personal/go"
 export PATH="$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin"
