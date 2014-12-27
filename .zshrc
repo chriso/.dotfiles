@@ -48,6 +48,9 @@ export PATH="$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin"
 source "$HOME/.rvm/scripts/rvm"
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# Setup Java
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home"
+
 # Add git info to the prompt
 setopt prompt_subst
 autoload -Uz vcs_info
