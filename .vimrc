@@ -29,8 +29,6 @@ au BufEnter * set nofen
 color desert
 nore ; :
 
-call pathogen#infect()
-
 " highlight lines >= 80 width
 match ErrorMsg '\%>79v.\+'
 
@@ -39,6 +37,3 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal g'\"" | endif
 endif
-
-" fix git gutter highlighting
-highlight clear SignColumn

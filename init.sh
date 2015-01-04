@@ -3,10 +3,7 @@
 # Work out current directory and the location of dotfiles
 dir="$(cd "$(dirname "$0")" && pwd)"
 
-# Init vim plugins
 pushd $dir
-git submodule init
-git submodule update
 
 # Link dot files to ~
 find $dir/.[^.]* -maxdepth 0 | egrep -v '.git(modules)?$' | while read src; do
