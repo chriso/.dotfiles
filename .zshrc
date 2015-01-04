@@ -23,6 +23,7 @@ alias sed="LC_ALL=C sed"
 alias grep="LC_ALL=C grep"
 alias sort="LC_ALL=C sort"
 alias gs="git status --short --branch"
+alias ldd="otool -L"
 
 # Mac-specific
 alias hidefile="SetFile -a V $1"
