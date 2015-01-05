@@ -13,6 +13,7 @@ SAVEHIST=20000
 HISTFILE=~/.zhistory
 setopt inc_append_history
 bindkey '^R' history-incremental-search-backward
+setopt no_nomatch
 
 # Setup my work dir
 export REPOS="$HOME/Documents/repositories"
