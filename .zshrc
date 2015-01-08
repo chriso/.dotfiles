@@ -24,7 +24,6 @@ alias sed="LC_ALL=C sed"
 alias grep="LC_ALL=C grep"
 alias sort="LC_ALL=C sort"
 alias gs="git status --short --branch"
-alias ldd="otool -L"
 
 # Mac-specific
 alias hidefile="SetFile -a V $1"
@@ -33,6 +32,7 @@ alias valgrind='valgrind --suppressions="$HOME/.zsh/valgrind-yosemite.supp"'
 alias scan-build="scan-build --use-analyzer=/usr/local/bin/clang"
 alias pylint="pylint --rcfile=tox.ini --report=n --unsafe-load-any-extension=y"
 alias csshx='csshx -c ~/.csshx_config'
+alias ldd="otool -L"
 
 # Setup compiler options
 export CFLAGS="-O3 -pipe"
