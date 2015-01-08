@@ -3,11 +3,7 @@
 .Spotlight-V100
 .Trashes
 
-Thumbs.db
-Desktop.ini
-
 *.pyc
 .tox
-
 node_modules
 npm-debug.log
