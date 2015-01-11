@@ -35,10 +35,6 @@ export CXX=c++
 source "$HOME/.rvm/scripts/rvm"
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# Setup Go
-export GOPATH="$HOME/Documents/personal/go"
-export PATH="$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin"
-
 # Add git info to the prompt
 setopt prompt_subst
 autoload -Uz vcs_info
