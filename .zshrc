@@ -6,8 +6,8 @@ autoload -U compinit && compinit
 zstyle ':completion::complete:*' use-cache 1
 
 # Enable history
-HISTSIZE=20000
-SAVEHIST=20000
+HISTSIZE=1000
+SAVEHIST=1000
 HISTFILE="$HOME/.zhistory"
 setopt inc_append_history
 bindkey '^R' history-incremental-search-backward
@@ -20,16 +20,11 @@ alias sed="LC_ALL=C sed"
 alias grep="LC_ALL=C grep"
 alias sort="LC_ALL=C sort"
 alias gs="git status --short --branch"
-alias valgrind='valgrind --suppressions="$HOME/.dotfiles/extra/valgrind-yosemite.supp"'
+alias valgrind="valgrind --suppressions=~/.dotfiles/extra/valgrind-yosemite.supp"
 alias scan-build="scan-build --use-analyzer=/usr/local/bin/clang"
 alias pylint="pylint --rcfile=tox.ini --report=n --unsafe-load-any-extension=y"
 alias csshx="csshx -c ~/.csshx_config"
 alias ldd="otool -L"
-
-# Setup compiler options
-export CFLAGS="-O3 -pipe"
-export CXXFLAGS="$CFLAGS"
-export CXX=c++
 
 # Setup Ruby
 source "$HOME/.rvm/scripts/rvm"
@@ -46,7 +41,4 @@ vcs_info_wrapper() {
     vcs_info && [ -n "$vcs_info_msg_0_" ] && echo "$vcs_info_msg_0_"
 }
 
-PS1="%{$fg[green]%}%~ (air)%{$reset_color%} \$(vcs_info_wrapper)$ "
-
-# Contextual tmux window titles
-[ -n "$TMUX" ] && precmd () { tmux rename-window ${PWD//*\//}; }
+PS1="%{$fg_bold[black]%}%~%{$reset_color%} \$(vcs_info_wrapper)$ "
