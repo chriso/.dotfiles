@@ -20,7 +20,7 @@ alias sed="LC_ALL=C sed"
 alias grep="LC_ALL=C grep"
 alias sort="LC_ALL=C sort"
 alias gs="git status --short --branch"
-alias valgrind='valgrind --suppressions="$HOME/.zsh/valgrind-yosemite.supp"'
+alias valgrind='valgrind --suppressions="$HOME/.dotfiles/extra/valgrind-yosemite.supp"'
 alias scan-build="scan-build --use-analyzer=/usr/local/bin/clang"
 alias pylint="pylint --rcfile=tox.ini --report=n --unsafe-load-any-extension=y"
 alias csshx="csshx -c ~/.csshx_config"
