@@ -1,24 +1,23 @@
-[ -z "$PS1" ] && return
-
-# Enable colours and completion
+# enable colours and completion
 autoload -U colors && colors
 autoload -U compinit && compinit
 zstyle ':completion::complete:*' use-cache 1
 
-# Enable history
+# enable history
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE="$HOME/.zhistory"
-setopt inc_append_history
+setopt inc_append_history hist_expire_dups_first no_nomatch
 bindkey '^R' history-incremental-search-backward
-setopt no_nomatch
 
-# Setup aliases
-alias ls="ls -G"
-alias ll="ls -lh"
+# fix encoding issues
 alias sed="LC_ALL=C sed"
 alias grep="LC_ALL=C grep"
 alias sort="LC_ALL=C sort"
+
+# setup aliases
+alias ls="ls -G"
+alias ll="ls -lh"
 alias gs="git status --short --branch"
 alias valgrind="valgrind --suppressions=~/.dotfiles/extra/valgrind-yosemite.supp"
 alias scan-build="scan-build --use-analyzer=/usr/local/bin/clang"
@@ -26,11 +25,10 @@ alias pylint="pylint --rcfile=tox.ini --report=n --unsafe-load-any-extension=y"
 alias csshx="csshx -c ~/.csshx_config"
 alias ldd="otool -L"
 
-# Setup Ruby
+# setup Ruby
 source "$HOME/.rvm/scripts/rvm"
-export PATH="$PATH:$HOME/.rvm/bin"
 
-# Add git info to the prompt
+# add git info to the prompt
 setopt prompt_subst
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' actionformats '%F{1}%b%F{3}|%F{1}%a%f '
@@ -40,5 +38,9 @@ zstyle ':vcs_info:*' disable bzr cdv cvs darcs fossil hg mtn p4 svk svn tla
 vcs_info_wrapper() {
     vcs_info && [ -n "$vcs_info_msg_0_" ] && echo "$vcs_info_msg_0_"
 }
+
+# setup directory shorthands
+km=~/Documents/kissmetrics
+: ~km
 
 PS1="%{$fg_bold[black]%}%~%{$reset_color%} \$(vcs_info_wrapper)$ "
