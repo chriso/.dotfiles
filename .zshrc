@@ -66,9 +66,6 @@ vcs_info_wrapper() {
 
 PS1="%{$fg[green]%}%~ (air)%{$reset_color%} \$(vcs_info_wrapper)$ "
 
-# Use z for directory completion
-source ~/.zsh/z.sh
-
 # Contextual tmux window titles
 [ -n "$TMUX" ] && precmd () { tmux rename-window ${PWD//*\//}; }
 
