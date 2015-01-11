@@ -18,18 +18,18 @@ nore ; :
 " disable folding
 au BufEnter * set nofen
 
-" ruby and html use 2 spaces for indentation
-au FileType ruby setl ts=2 sw=2 sts=2 et
-au FileType html setl ts=2 sw=2 sts=2 et
-
-" golang uses tabs
-au FileType go setl noet
-
-" highlight lines >= 80 width
-match ErrorMsg '\%>79v.\+'
-
 " open a file at the last cursor position
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal g'\"" | endif
 endif
+
+" ruby and html use 2 spaces for indentation
+au FileType ruby setl ts=2 sw=2 sts=2 et
+au FileType html setl ts=2 sw=2 sts=2 et
+
+" go uses tabs
+au FileType go setl noet
+
+" highlight lines >= 80 width when writing python
+au FileType python match ErrorMsg '\%>79v.\+'
