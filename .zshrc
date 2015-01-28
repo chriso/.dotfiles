@@ -10,6 +10,8 @@ HISTFILE="$HOME/.zhistory"
 setopt inc_append_history hist_expire_dups_first no_nomatch
 bindkey '^R' history-incremental-search-backward
 
+export EDITOR=/usr/local/bin/vim
+
 # fix encoding issues
 alias sed="LC_ALL=C sed"
 alias grep="LC_ALL=C grep"
@@ -20,7 +22,6 @@ alias ls="ls -G"
 alias ll="ls -lh"
 alias gs="git status --short --branch"
 alias valgrind='valgrind --suppressions="$HOME/.dotfiles/extra/valgrind-yosemite.supp"'
-alias scan-build="scan-build --use-analyzer=/usr/local/bin/clang"
 alias pylint="pylint --rcfile=tox.ini --report=n --unsafe-load-any-extension=y"
 alias csshx="csshx -c ~/.csshx_config"
 alias ldd="otool -L"
