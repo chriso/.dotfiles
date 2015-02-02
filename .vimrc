@@ -22,5 +22,5 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'
 " ruby and html use 2 spaces for indentation
 au FileType ruby,html setl ts=2 sw=2 sts=2 et
 
-" highlight lines >= 80 width when writing python or C
-au FileType python,c match ErrorMsg '\%>79v.\+'
+" highlight lines >= 80 width when writing python or C/C++
+au FileType python,c,cpp match ErrorMsg '\%>79v.\+'
