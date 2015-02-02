@@ -11,6 +11,9 @@ set laststatus=0
 set backspace=indent,eol,start
 set nofoldenable
 
+" parse .h files as C rather than C++
+let g:c_syntax_for_h = 1
+
 filetype plugin indent on
 syntax on
 color desert
