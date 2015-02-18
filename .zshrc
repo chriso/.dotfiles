@@ -29,6 +29,9 @@ alias ldd="otool -L"
 # setup Ruby
 source "$HOME/.rvm/scripts/rvm"
 
+# pip config
+export PIP_CONFIG_FILE="$HOME/.piprc"
+
 # add git info to the prompt
 setopt prompt_subst
 autoload -Uz vcs_info
