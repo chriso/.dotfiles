@@ -22,15 +22,16 @@ alias ls="ls -G"
 alias ll="ls -lh"
 alias gs="git status --short --branch"
 alias valgrind='valgrind --suppressions="$HOME/.dotfiles/extra/valgrind-yosemite.supp"'
-alias pylint="pylint --rcfile=tox.ini --report=n --unsafe-load-any-extension=y"
 alias csshx="csshx -c ~/.csshx_config"
 alias ldd="otool -L"
 
-# setup Ruby
+# setup ruby
 source "$HOME/.rvm/scripts/rvm"
 
-# pip config
+# setup python
 export PIP_CONFIG_FILE="$HOME/.piprc"
+alias pylint="pylint --rcfile=tox.ini --report=n --unsafe-load-any-extension=y"
+alias py.test="py.test --cov-config=tox.ini"
 
 # add git info to the prompt
 setopt prompt_subst
