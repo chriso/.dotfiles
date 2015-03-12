@@ -12,6 +12,19 @@ set backspace=indent,eol,start
 set nofoldenable
 set visualbell t_vb=
 
+" hard mode: disable arrow keys
+function HardMode()
+  noremap <Up> <NOP>
+  noremap <Down> <NOP>
+  noremap <Left> <NOP>
+  noremap <Right> <NOP>
+  noremap h <NOP>
+  noremap j <NOP>
+  noremap k <NOP>
+  noremap l <NOP>
+  echo "Good luck!"
+endfunction
+
 " parse .h files as C rather than C++
 let g:c_syntax_for_h = 1
 
