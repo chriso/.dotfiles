@@ -28,6 +28,7 @@ alias ldd="otool -L"
 
 # setup ruby
 source "$HOME/.rvm/scripts/rvm"
+export PATH="$PATH:$HOME/.rvm/bin"
 
 # setup python
 export PIP_CONFIG_FILE="$HOME/.piprc"
