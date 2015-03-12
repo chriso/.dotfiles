@@ -11,6 +11,7 @@ setopt inc_append_history hist_expire_dups_first no_nomatch
 bindkey '^R' history-incremental-search-backward
 
 export EDITOR=/usr/local/bin/vim
+export TERM=xterm-256color
 
 # fix encoding issues
 alias sed="LC_ALL=C sed"
