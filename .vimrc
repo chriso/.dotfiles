@@ -10,6 +10,7 @@ set smartcase ignorecase
 set laststatus=0
 set backspace=indent,eol,start
 set nofoldenable
+set visualbell t_vb=
 
 " parse .h files as C rather than C++
 let g:c_syntax_for_h = 1
