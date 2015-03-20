@@ -25,7 +25,7 @@ function HardMode()
   echo "Good luck!"
 endfunction
 
-" parse .h files as C rather than C++
+" parse .h files as c rather than c++
 let g:c_syntax_for_h = 1
 
 filetype plugin indent on
@@ -36,8 +36,8 @@ nore ; :
 " open a file at the last cursor position
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 
-" ruby and html use 2 spaces for indentation
-au FileType ruby,html setl ts=2 sw=2 sts=2 et
+" ruby, html and yaml use 2 spaces for indentation
+au FileType ruby,html,yml setl ts=2 sw=2 sts=2 et
 
-" highlight lines >= 80 width when writing python or C/C++
+" highlight lines >= 80 width when writing python or c/c++
 au FileType python,c,cpp match ErrorMsg '\%>79v.\+'
