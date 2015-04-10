@@ -23,7 +23,6 @@ alias ls="ls -G"
 alias ll="ls -lh"
 alias gs="git status --short --branch"
 alias valgrind='valgrind --suppressions="$HOME/.dotfiles/extra/valgrind-yosemite.supp"'
-alias csshx="csshx -c ~/.csshx_config"
 alias ldd="otool -L"
 
 # setup ruby
