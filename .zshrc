@@ -17,6 +17,7 @@ export TERM=xterm-256color
 alias sed="LC_ALL=C sed"
 alias grep="LC_ALL=C grep"
 alias sort="LC_ALL=C sort"
+alias cut="LC_ALL=C cut"
 
 # setup aliases
 alias ls="ls -G"
@@ -24,6 +25,8 @@ alias ll="ls -lh"
 alias gs="git status --short --branch"
 alias valgrind='valgrind --suppressions="$HOME/.dotfiles/extra/valgrind-yosemite.supp"'
 alias ldd="otool -L"
+alias ccat="pygmentize -g"
+alias less="less -R"
 
 # setup ruby
 source "$HOME/.rvm/scripts/rvm"
@@ -33,6 +36,10 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PIP_CONFIG_FILE="$HOME/.piprc"
 alias pylint="pylint --rcfile=tox.ini --report=n --unsafe-load-any-extension=y"
 alias py.test="py.test --cov-config=tox.ini"
+
+# setup go
+export GOPATH=/Users/chris/Documents/go
+export PATH="$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin"
 
 # add git info to the prompt
 setopt prompt_subst
@@ -44,9 +51,5 @@ zstyle ':vcs_info:*' disable bzr cdv cvs darcs fossil hg mtn p4 svk svn tla
 vcs_info_wrapper() {
     vcs_info && [ -n "$vcs_info_msg_0_" ] && echo "$vcs_info_msg_0_"
 }
-
-# setup directory shorthands
-km=~/Documents/kissmetrics
-: ~km
 
 PS1="%{$fg_bold[black]%}%~%{$reset_color%} \$(vcs_info_wrapper)$ "
