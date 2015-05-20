@@ -23,7 +23,7 @@ alias cut="LC_ALL=C cut"
 alias ls="ls -G"
 alias ll="ls -lh"
 alias gs="git status --short --branch"
-alias valgrind='valgrind --suppressions="$HOME/.dotfiles/extra/valgrind-yosemite.supp"'
+alias valgrind='valgrind --suppressions="$HOME/.dotfiles/valgrind/yosemite.supp"'
 alias ldd="otool -L"
 alias ccat="pygmentize -g"
 alias less="less -R"
