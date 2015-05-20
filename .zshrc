@@ -36,10 +36,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PIP_CONFIG_FILE="$HOME/.piprc"
 alias pylint="pylint --rcfile=tox.ini --report=n --unsafe-load-any-extension=y"
 alias py.test="py.test --cov-config=tox.ini"
-
-# setup go
-export GOPATH=/Users/chris/Documents/go
-export PATH="$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin"
+source /usr/local/bin/virtualenvwrapper.sh
 
 # add git info to the prompt
 setopt prompt_subst
