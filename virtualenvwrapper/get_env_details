@@ -1,0 +1,7 @@
+#!/usr/local/bin/zsh
+
+VIRTUAL_ENV_DIR="$WORKON_HOME/$1"
+
+echo "Size: $(du -hs $VIRTUAL_ENV_DIR | awk '{ print $1 }')"
+
+$VIRTUAL_ENV_DIR/bin/pip freeze
