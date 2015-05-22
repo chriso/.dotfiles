@@ -28,12 +28,7 @@ alias ldd="otool -L"
 alias ccat="pygmentize -g"
 alias less="less -R"
 
-# setup ruby
-source "$HOME/.rvm/scripts/rvm"
-export PATH="$PATH:$HOME/.rvm/bin"
-
 # setup python
-export PIP_CONFIG_FILE="$HOME/.piprc"
 alias pylint="pylint --rcfile=tox.ini --report=n --unsafe-load-any-extension=y"
 alias py.test="py.test --cov-config=tox.ini"
 source /usr/local/bin/virtualenvwrapper.sh
