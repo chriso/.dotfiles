@@ -1,0 +1,15 @@
+Compression yes
+GSSAPIAuthentication no
+PasswordAuthentication no
+IdentitiesOnly yes
+
+# Persistent connections
+ControlMaster auto
+ControlPath /tmp/%r.%h.%p.sock
+ControlPersist 30m
+ServerAliveInterval 2m
+
+# Code repositories
+Host github.com gist.github.com
+    IdentityFile ~/.ssh/github.key
+    PasswordAuthentication yes
