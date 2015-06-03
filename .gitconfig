@@ -7,7 +7,7 @@
     diff = diff --color
     wd = diff --color-words
     wdc = diff --color-words --cached
-    todo = grep -n -F -I -e TODO -e FIXME
+    todo = grep -n -F -I -e TODO -e FIXME -e XXX
     clean-branches = ! git branch --merged | grep -v \\* | xargs -n1 git branch -d
 [core]
     excludesfile = ~/.gitignore
