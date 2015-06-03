@@ -1,3 +1,4 @@
 #!/usr/local/bin/zsh
 
-pip install -U pip setuptools ipython
+pip install -U pip setuptools
+pip install ipython tox
