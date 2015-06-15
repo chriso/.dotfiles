@@ -2,7 +2,7 @@ set nocompatible
 set encoding=utf-8
 set number
 set noswapfile
-set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+set shiftwidth=4 softtabstop=4 expandtab
 set list listchars=tab:\ \ ,trail:·
 set autoindent
 set incsearch
