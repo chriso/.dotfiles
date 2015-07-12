@@ -8,7 +8,7 @@
     wd = diff --color-words
     wdc = diff --color-words --cached
     todo = grep -n -F -I -e TODO -e FIXME -e XXX
-    clean-branches = ! git branch --merged | grep -v \\* | xargs -n1 git branch -d
+    clean-branches = ! git branch --merged | grep -v \\* | grep -v 'staging\\|production' | xargs -n1 git branch -d
 [core]
     excludesfile = ~/.gitignore
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
