@@ -31,6 +31,7 @@ alias less="less -R"
 # setup python
 alias pylint="pylint --rcfile=tox.ini --report=n --unsafe-load-any-extension=y"
 alias py.test="py.test --cov-config=tox.ini"
+export PYSPARK_DRIVER_PYTHON=ipython
 source /usr/local/bin/virtualenvwrapper.sh
 
 # add git info to the prompt
