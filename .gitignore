@@ -7,3 +7,5 @@
 .tox
 node_modules
 npm-debug.log
+
+s3-*
