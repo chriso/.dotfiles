@@ -28,6 +28,13 @@ alias ldd="otool -L"
 alias ccat="pygmentize -g"
 alias less="less -R"
 
+# handy scripts
+alias todo="vim ~/.todo"
+alias uuid="python -c 'import uuid; print str(uuid.uuid4())'"
+alias now="python -c 'import time; print int(time.time())'"
+alias local_server="python -m SimpleHTTPServer 8080"
+alias random_mac="openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//' | xargs sudo ifconfig en0 ether"
+
 # setup python
 alias pylint="pylint --rcfile=tox.ini --report=n --unsafe-load-any-extension=y"
 alias py.test="py.test --cov-config=tox.ini"
