@@ -39,5 +39,8 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'
 " ruby, html and yaml use 2 spaces for indentation
 au FileType ruby,html,yml setl ts=2 sw=2 sts=2 et
 
+" golang uses tab
+au FileType go setl ts=4 sw=4 noet
+
 " highlight lines >= 80 width when writing python or c/c++
 au FileType python,c,cpp match ErrorMsg '\%>79v.\+'
