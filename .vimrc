@@ -28,6 +28,8 @@ endfunction
 " parse .h files as c rather than c++
 let g:c_syntax_for_h = 1
 
+execute pathogen#infect()
+
 filetype plugin indent on
 syntax on
 color desert
