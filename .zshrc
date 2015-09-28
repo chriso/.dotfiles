@@ -56,4 +56,6 @@ vcs_info_wrapper() {
     vcs_info && [ -n "$vcs_info_msg_0_" ] && echo "$vcs_info_msg_0_"
 }
 
+source ~/.dotfiles/scripts/z.sh
+
 PS1="%{$fg_bold[black]%}%~%{$reset_color%} \$(vcs_info_wrapper)$ "
