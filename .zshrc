@@ -25,25 +25,20 @@ alias ll="ls -lh"
 alias gs="git status --short --branch"
 alias valgrind='valgrind --suppressions="$HOME/.dotfiles/valgrind/yosemite.supp"'
 alias ldd="otool -L"
-alias ccat="pygmentize -g"
 alias less="less -R"
 
 # handy scripts
 alias todo="vim ~/.todo"
 alias uuid="python -c 'import uuid; print str(uuid.uuid4())'"
-alias now="date +%s"
-alias local_server="python -m SimpleHTTPServer 8080"
 alias random_mac="openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//' | xargs sudo ifconfig en0 ether"
 
 # setup python
-alias pylint="pylint --rcfile=tox.ini --report=n --unsafe-load-any-extension=y"
-alias py.test="py.test --cov-config=tox.ini"
 export PYSPARK_DRIVER_PYTHON=ipython
 source /usr/local/bin/virtualenvwrapper.sh
 
 # setup golang
-export PATH="$PATH:/usr/local/opt/go/libexec/bin:/Users/chris/Documents/go/bin"
-export GOPATH="/Users/chris/Documents/go"
+export GOPATH=/Users/chris/Documents/go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
 
 # add git info to the prompt
 setopt prompt_subst
