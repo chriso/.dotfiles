@@ -9,3 +9,6 @@ node_modules
 npm-debug.log
 
 s3-*
+
+.vim/.netrwhist
+.vim/bundle
