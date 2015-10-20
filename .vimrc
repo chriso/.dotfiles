@@ -19,8 +19,11 @@ noremap <C-Right> :bnext<CR>
 " parse .h files as c rather than c++
 let g:c_syntax_for_h = 1
 
-" Ctrl+P search should be relative to the dir containing .git
+" setup Ctrl+P searching
 let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 execute pathogen#infect()
 
