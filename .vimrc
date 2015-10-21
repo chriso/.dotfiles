@@ -54,6 +54,6 @@ au FileType go nmap <Leader>l :GoLint<CR>
 
 " setup Python
 au FileType python nmap <Leader>l :! tox -e lint<CR>
-au FileType python nmap <Leader>t :! tox -e py27 --<CR>
-au FileType python nmap <Leader>k :! tox -e py27 -- -s -k %<CR>
+au FileType python nmap <Leader>t :! tox -e py27<CR>
+au FileType python nmap <Leader>k :! tox -e py27 -- -v -s -k $(basename "%")<CR>
 au FileType python nmap <Leader>c :! tox -e py27 -- --cov-report=html<CR>
