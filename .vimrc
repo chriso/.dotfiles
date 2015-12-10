@@ -39,7 +39,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'
 au FileType ruby,html,yml setl ts=2 sw=2 sts=2 et
 
 " highlight lines >= 80 width when writing python or c/c++
-au FileType python,c,cpp match ErrorMsg '\%>79v.\+'
+au FileType python,c,cpp,php match ErrorMsg '\%>79v.\+'
 
 " setup golang
 let g:go_fmt_command = "goimports"
