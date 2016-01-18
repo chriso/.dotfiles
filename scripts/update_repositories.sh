@@ -9,10 +9,15 @@ fi
 find "$1" -name .git -type d 2>/dev/null | while read git_dir; do
   branch_info=$(git --git-dir="$git_dir" status --branch | head -1)
   repo_dir="${git_dir%/.git}"
+  if echo "$repo_dir" | grep -q /.tox/; then
+    continue
+  fi
   if ! echo $branch_info | grep -q "HEAD detached"; then
-    echo "Updating $repo_dir ($branch_info)"
     pushd "$repo_dir" &>/dev/null
-    git pull || true
+    if git remote -v | grep -q fetch; then
+      echo "Updating $repo_dir ($branch_info)"
+      git pull || true
+    fi
     popd &>/dev/null
   fi
 done
