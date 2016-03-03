@@ -10,6 +10,7 @@ HISTFILE="$HOME/.zhistory"
 setopt inc_append_history hist_expire_dups_first no_nomatch
 bindkey '^R' history-incremental-search-backward
 
+# setup the environment
 export EDITOR=/usr/local/bin/vim
 export TERM=xterm-256color
 
@@ -24,11 +25,8 @@ alias ls="ls -G"
 alias ll="ls -lh"
 alias gs="git status --short --branch"
 alias valgrind='valgrind --suppressions="$HOME/.dotfiles/valgrind/yosemite.supp"'
-alias ldd="otool -L"
 alias less="less -R"
-
-# handy scripts
-alias todo="vim ~/.todo"
+alias redir="cd $(pwd -P)"
 alias uuid="python -c 'import uuid; print str(uuid.uuid4())'"
 alias random_mac="openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//' | xargs sudo ifconfig en0 ether"
 
@@ -37,7 +35,7 @@ export PYSPARK_DRIVER_PYTHON=ipython
 source /usr/local/bin/virtualenvwrapper.sh
 
 # setup golang
-export GOPATH=/Users/chris/Documents/go
+export GOPATH=$HOME/Documents/go
 export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
 
 # add git info to the prompt
@@ -51,6 +49,8 @@ vcs_info_wrapper() {
     vcs_info && [ -n "$vcs_info_msg_0_" ] && echo "$vcs_info_msg_0_"
 }
 
-source ~/.dotfiles/scripts/z.sh
+# shorten common dirs
+go=$GOPATH/src/github.com
+: ~go
 
 PS1="%{$fg_bold[black]%}%~%{$reset_color%} \$(vcs_info_wrapper)$ "
