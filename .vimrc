@@ -52,11 +52,6 @@ au FileType go nmap <Leader>d <Plug>(go-doc)
 au FileType go nmap <Leader>v <Plug>(go-vet)
 au FileType go nmap <Leader>l :GoLint<CR>
 
-" golang /vendor/ dir support in v1.6 (or v1.5 with GO15VENDOREXPERIMENT=1)
-" see https://gist.github.com/termie/34326bd29e89565c95fa
-let g:go_fmt_options = "-f " . expand("%:p")
-
-
 " setup Python
 au FileType python nmap <Leader>l :! tox -e lint<CR>
 au FileType python nmap <Leader>t :! tox -e py27<CR>
