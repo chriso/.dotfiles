@@ -29,6 +29,7 @@ alias less="less -R"
 alias redir="cd $(pwd -P)"
 alias uuid="python -c 'import uuid; print str(uuid.uuid4())'"
 alias random_mac="openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//' | xargs sudo ifconfig en0 ether"
+alias update="brew update && brew upgrade --all && brew cleanup"
 
 # setup python
 export PYSPARK_DRIVER_PYTHON=ipython
@@ -53,4 +54,4 @@ vcs_info_wrapper() {
 go=$GOPATH/src/github.com
 : ~go
 
-PS1="%{$fg_bold[black]%}%~%{$reset_color%} \$(vcs_info_wrapper)$ "
+PS1="%{$fg_bold[green]%}mac%{$reset_color%} %{$fg_bold[black]%}%~%{$reset_color%} \$(vcs_info_wrapper)$ "

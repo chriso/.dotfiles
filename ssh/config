@@ -11,3 +11,10 @@ Host github.com gist.github.com
     ControlPath /tmp/%r.%h.%p.sock
     ControlPersist 30m
     ServerAliveInterval 2m
+
+# Local development
+Host dev
+    Compression no
+    User root
+    IdentityFile ~/.ssh/dev.key
+    ForwardAgent yes
