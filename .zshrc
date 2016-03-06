@@ -39,6 +39,21 @@ source /usr/local/bin/virtualenvwrapper.sh
 export GOPATH=$HOME/Documents/go
 export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
 
+# setup the dev environment
+export DEV_VBOX=Alpine
+dev() {
+  if ! VBoxManage list runningvms 2>/dev/null | grep -q $DEV_VBOX; then
+    VBoxManage startvm $DEV_VBOX --type headless
+    echo -n Waiting for sshd
+    for wait_s in $(seq 1 30); do echo -n .; sleep 1; done
+    echo
+  elif VBoxManage showvminfo $DEV_VBOX 2>/dev/null | grep -q 'State: *paused'; then
+    VBoxManage controlvm $DEV_VBOX resume
+  fi
+  ssh dev
+  VBoxManage controlvm $DEV_VBOX pause
+}
+
 # add git info to the prompt
 setopt prompt_subst
 autoload -Uz vcs_info
