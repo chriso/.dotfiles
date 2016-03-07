@@ -26,7 +26,7 @@ alias ll="ls -lh"
 alias gs="git status --short --branch"
 alias valgrind='valgrind --suppressions="$HOME/.dotfiles/valgrind/yosemite.supp"'
 alias less="less -R"
-alias redir="cd $(pwd -P)"
+alias redir="cd \$(pwd -P)"
 alias uuid="python -c 'import uuid; print str(uuid.uuid4())'"
 alias random_mac="openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//' | xargs sudo ifconfig en0 ether"
 alias update="brew update && brew upgrade --all && brew cleanup"
