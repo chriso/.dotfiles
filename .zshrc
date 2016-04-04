@@ -34,11 +34,23 @@ alias update="brew update && brew upgrade --all && brew cleanup"
 alias productive="sudo sed -i '' -E 's/^#(0.+PRODUCTIVE)$/\1/' /etc/hosts"
 alias unproductive="sudo sed -i '' -E 's/^(0.+PRODUCTIVE)$/#\1/' /etc/hosts"
 
+# setup python
+activate() {
+  activate_bin="$(find . -name 'activate')"
+  if [[ "x$activate_bin" == "x" ]]; then
+    virtualenv env
+    activate_dir=./env/bin
+  else
+    activate_dir="$(dirname "$activate_bin")"
+  fi
+  source "$activate_dir/activate"
+}
+export PATH=$HOME/.dotfiles/wrappers:$PATH
+
 # setup golang
 export GOPATH=$HOME/Documents/go
 export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
 
-export PATH=$HOME/.dotfiles/wrappers:$PATH
 
 # setup the dev environment
 export DEV_VBOX=Alpine
