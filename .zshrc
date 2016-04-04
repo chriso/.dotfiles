@@ -39,6 +39,8 @@ source /usr/local/bin/virtualenvwrapper.sh
 export GOPATH=$HOME/Documents/go
 export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
 
+export PATH=$HOME/.dotfiles/wrappers:$PATH
+
 # setup the dev environment
 export DEV_VBOX=Alpine
 dev() {
