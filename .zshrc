@@ -28,12 +28,11 @@ alias valgrind='valgrind --suppressions="$HOME/.dotfiles/valgrind/yosemite.supp"
 alias less="less -R"
 alias redir="cd \$(pwd -P)"
 alias uuid="python -c 'import uuid; print str(uuid.uuid4())'"
+alias sha256="openssl dgst -hex -sha256"
 alias random_mac="openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//' | xargs sudo ifconfig en0 ether"
 alias update="brew update && brew upgrade --all && brew cleanup"
-
-# setup python
-export PYSPARK_DRIVER_PYTHON=ipython
-source /usr/local/bin/virtualenvwrapper.sh
+alias productive="sudo sed -i '' -E 's/^#(0.+PRODUCTIVE)$/\1/' /etc/hosts"
+alias unproductive="sudo sed -i '' -E 's/^(0.+PRODUCTIVE)$/#\1/' /etc/hosts"
 
 # setup golang
 export GOPATH=$HOME/Documents/go
