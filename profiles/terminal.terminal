@@ -154,7 +154,7 @@
 	<data>
 	YnBsaXN0MDDUAQIDBAUGFRZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
 	AAGGoKMHCA9VJG51bGzTCQoLDA0OVU5TUkdCXE5TQ29sb3JTcGFjZVYkY2xhc3NPECcw
-	LjEwNDE5NzM3NjIgMC4xMDQxOTczNzYyIDAuMTA0MTk3Mzc2MgAQAYAC0hAREhNaJGNs
+	LjA3NDQ3ODIwMzkgMC4wNzQ0NzgyMDM5IDAuMDc0NDc4MjAzOQAQAYAC0hAREhNaJGNs
 	YXNzbmFtZVgkY2xhc3Nlc1dOU0NvbG9yohIUWE5TT2JqZWN0XxAPTlNLZXllZEFyY2hp
 	dmVy0RcYVHJvb3SAAQgRGiMtMjc7QUhOW2KMjpCVoKmxtL3P0tcAAAAAAAABAQAAAAAA
 	AAAZAAAAAAAAAAAAAAAAAAAA2Q==
@@ -162,6 +162,10 @@
 	<key>BackgroundSettingsForInactiveWindows</key>
 	<false/>
 	<key>Bell</key>
+	<false/>
+	<key>BellBadge</key>
+	<false/>
+	<key>BellBounce</key>
 	<false/>
 	<key>BlinkText</key>
 	<true/>
@@ -180,19 +184,23 @@
 	</data>
 	<key>CursorType</key>
 	<integer>0</integer>
+	<key>DisableANSIColor</key>
+	<false/>
 	<key>Font</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGGBlYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
 	AAGGoKQHCBESVSRudWxs1AkKCwwNDg8QVk5TU2l6ZVhOU2ZGbGFnc1ZOU05hbWVWJGNs
-	YXNzI0AqAAAAAAAAEBCAAoADXkRlamFWdVNhbnNNb25v0hMUFRZaJGNsYXNzbmFtZVgk
+	YXNzI0AuAAAAAAAAEBCAAoADXkRlamFWdVNhbnNNb25v0hMUFRZaJGNsYXNzbmFtZVgk
 	Y2xhc3Nlc1ZOU0ZvbnSiFRdYTlNPYmplY3RfEA9OU0tleWVkQXJjaGl2ZXLRGhtUcm9v
 	dIABCBEaIy0yNzxCS1JbYmlydHZ4h4yXoKeqs8XIzQAAAAAAAAEBAAAAAAAAABwAAAAA
 	AAAAAAAAAAAAAADP
 	</data>
 	<key>FontAntialias</key>
 	<true/>
+	<key>FontHeightSpacing</key>
+	<integer>1</integer>
 	<key>FontWidthSpacing</key>
-	<real>0.99596774193548387</real>
+	<integer>1</integer>
 	<key>Linewrap</key>
 	<true/>
 	<key>ProfileCurrentVersion</key>
@@ -212,11 +220,27 @@
 	<true/>
 	<key>ShouldLimitScrollback</key>
 	<integer>0</integer>
+	<key>ShouldRestoreContent</key>
+	<false/>
+	<key>ShowActiveProcessInTabTitle</key>
+	<true/>
 	<key>ShowActiveProcessInTitle</key>
 	<false/>
+	<key>ShowActivityIndicatorInTab</key>
+	<true/>
 	<key>ShowCommandKeyInTitle</key>
 	<false/>
 	<key>ShowDimensionsInTitle</key>
+	<false/>
+	<key>ShowRepresentedURLInTabTitle</key>
+	<true/>
+	<key>ShowShellCommandInTitle</key>
+	<false/>
+	<key>ShowTTYNameInTabTitle</key>
+	<false/>
+	<key>ShowTTYNameInTitle</key>
+	<false/>
+	<key>ShowTerminalInDockIcon</key>
 	<false/>
 	<key>ShowWindowSettingsNameInTitle</key>
 	<false/>
@@ -248,6 +272,8 @@
 	<false/>
 	<key>VisualBellOnlyWhenMuted</key>
 	<false/>
+	<key>WindowTitle</key>
+	<string></string>
 	<key>name</key>
 	<string>Tomorrow Night</string>
 	<key>shellExitAction</key>
