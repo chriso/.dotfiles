@@ -11,19 +11,11 @@ set laststatus=2
 set backspace=indent,eol,start
 set nofoldenable
 set visualbell t_vb=
-
-" cycle buffers with Ctrl + arrows
-noremap <C-Left> :bprevious<CR>
-noremap <C-Right> :bnext<CR>
+set nobackup
+set nowritebackup
 
 " parse .h files as c rather than c++
 let g:c_syntax_for_h = 1
-
-" setup Ctrl+P searching
-let g:ctrlp_working_path_mode = 'r'
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 execute pathogen#infect()
 
@@ -32,13 +24,23 @@ syntax on
 color desert
 noremap ; :
 
+" cycle buffers with ctrl + arrows
+noremap <C-Left> :bprevious<CR>
+noremap <C-Right> :bnext<CR>
+
+" setup Ctrl+P
+let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
 " open a file at the last cursor position
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 
-" ruby, html and yaml use 2 spaces for indentation
-au FileType ruby,html,yml setl ts=2 sw=2 sts=2 et
+" ruby, html, yaml, bash use 2 spaces for indentation
+au FileType ruby,html,yml,sh setl ts=2 sw=2 sts=2 et
 
-" highlight lines >= 80 width when writing python or c/c++
+" highlight lines >= 80 width in certain languages
 au FileType python,c,cpp,php match ErrorMsg '\%>79v.\+'
 
 " setup golang
@@ -52,7 +54,7 @@ au FileType go nmap <Leader>d <Plug>(go-doc)
 au FileType go nmap <Leader>v <Plug>(go-vet)
 au FileType go nmap <Leader>l :GoLint<CR>
 
-" setup Python
+" setup python
 au FileType python nmap <Leader>l :! tox -e lint<CR>
 au FileType python nmap <Leader>t :! tox -e py27<CR>
 au FileType python nmap <Leader>k :! tox -e py27 -- -v -s -k $(basename "%")<CR>

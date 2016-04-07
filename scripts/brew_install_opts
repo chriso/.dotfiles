@@ -1,0 +1,6 @@
+#!/bin/bash
+
+brew list | while read formula; do
+  echo -n "$formula:"
+  brew info "$formula" | grep 'Built from source\|Poured from bottle'
+done

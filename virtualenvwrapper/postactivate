@@ -1,7 +1,0 @@
-#!/usr/local/bin/zsh
-
-VIRTUAL_ENV_BASE=$(basename $VIRTUAL_ENV)
-
-cd ~/Documents/*/$VIRTUAL_ENV_BASE 2>/dev/null
-
-PS1="%{$fg_bold[blue]%}$VIRTUAL_ENV_BASE%{$reset_color%} $_OLD_VIRTUAL_PS1"

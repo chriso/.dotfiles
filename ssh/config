@@ -3,7 +3,6 @@ GSSAPIAuthentication no
 PasswordAuthentication no
 IdentitiesOnly yes
 
-# Code repositories
 Host github.com gist.github.com
     IdentityFile ~/.ssh/github.key
     PasswordAuthentication yes
@@ -11,10 +10,3 @@ Host github.com gist.github.com
     ControlPath /tmp/%r.%h.%p.sock
     ControlPersist 30m
     ServerAliveInterval 2m
-
-# Local development
-Host dev
-    Compression no
-    User root
-    IdentityFile ~/.ssh/dev.key
-    ForwardAgent yes

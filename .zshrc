@@ -1,71 +1,31 @@
 # enable colours and completion
-autoload -U colors && colors
-autoload -U compinit && compinit
+autoload -Uz colors && colors
+autoload -Uz compinit && compinit
 zstyle ':completion::complete:*' use-cache 1
 
 # enable history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE="$HOME/.zhistory"
 setopt inc_append_history hist_expire_dups_first no_nomatch
 bindkey '^R' history-incremental-search-backward
 
 # setup the environment
+export LC_ALL=C
 export EDITOR=/usr/local/bin/vim
-export TERM=xterm-256color
-
-# fix encoding issues
-alias sed="LC_ALL=C sed"
-alias grep="LC_ALL=C grep"
-alias sort="LC_ALL=C sort"
-alias cut="LC_ALL=C cut"
+export PAGER=less
+export LESS=-R
+export CLICOLOR=1
 
 # setup aliases
-alias ls="ls -G"
 alias ll="ls -lh"
-alias gs="git status --short --branch"
-alias valgrind='valgrind --suppressions="$HOME/.dotfiles/valgrind/yosemite.supp"'
-alias less="less -R"
-alias redir="cd \$(pwd -P)"
-alias uuid="python -c 'import uuid; print str(uuid.uuid4())'"
-alias sha256="openssl dgst -hex -sha256"
-alias random_mac="openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//' | xargs sudo ifconfig en0 ether"
-alias update="brew update && brew upgrade --all && brew cleanup"
-alias productive="sudo sed -i '' -E 's/^#(0.+PRODUCTIVE)$/\1/' /etc/hosts"
-alias unproductive="sudo sed -i '' -E 's/^(0.+PRODUCTIVE)$/#\1/' /etc/hosts"
 
-# setup python
-activate() {
-  activate_bin="$(find . -name 'activate')"
-  if [[ "x$activate_bin" == "x" ]]; then
-    virtualenv env
-    activate_dir=./env/bin
-  else
-    activate_dir="$(dirname "$activate_bin")"
-  fi
-  source "$activate_dir/activate"
-}
-export PATH=$HOME/.dotfiles/wrappers:$PATH
+# add scripts overlay
+export PATH=$HOME/.dotfiles/scripts:$PATH
 
 # setup golang
 export GOPATH=$HOME/Documents/go
 export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
-
-
-# setup the dev environment
-export DEV_VBOX=Alpine
-dev() {
-  if ! VBoxManage list runningvms 2>/dev/null | grep -q $DEV_VBOX; then
-    VBoxManage startvm $DEV_VBOX --type headless
-    echo -n Waiting for sshd
-    for wait_s in $(seq 1 30); do echo -n .; sleep 1; done
-    echo
-  elif VBoxManage showvminfo $DEV_VBOX 2>/dev/null | grep -q 'State: *paused'; then
-    VBoxManage controlvm $DEV_VBOX resume
-  fi
-  ssh dev
-  VBoxManage controlvm $DEV_VBOX pause
-}
 
 # add git info to the prompt
 setopt prompt_subst
@@ -75,11 +35,7 @@ zstyle ':vcs_info:*' formats '%F{3}%b%f '
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' disable bzr cdv cvs darcs fossil hg mtn p4 svk svn tla
 vcs_info_wrapper() {
-    vcs_info && [ -n "$vcs_info_msg_0_" ] && echo "$vcs_info_msg_0_"
+  vcs_info && [ -n "$vcs_info_msg_0_" ] && echo "$vcs_info_msg_0_"
 }
 
-# shorten common dirs
-go=$GOPATH/src/github.com
-: ~go
-
-PS1="%{$fg_bold[green]%}mac%{$reset_color%} %{$fg_bold[black]%}%~%{$reset_color%} \$(vcs_info_wrapper)$ "
+PS1="%{$fg_bold[black]%}%~%{$reset_color%} \$(vcs_info_wrapper)$ "
