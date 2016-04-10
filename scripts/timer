@@ -57,13 +57,8 @@ def countdown(duration, interval=0.2):
 
 def format_time(seconds):
     """Format a time in seconds, e.g. 7200 => '02:00:00', 321 => '00:05:21'."""
-    hours = minutes = 0
-    if seconds >= 3600:
-        hours = seconds / 3600
-        seconds -= hours * 3600
-    if seconds >= 60:
-        minutes = seconds / 60
-        seconds -= minutes * 60
+    hours, seconds = divmod(seconds, 3600)
+    minutes, seconds = divmod(seconds, 60)
     return '{:0>2}:{:0>2}:{:0>2}'.format(hours, minutes, seconds)
 
 
