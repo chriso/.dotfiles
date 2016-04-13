@@ -1,4 +1,4 @@
-export LANG=en_AU.UTF-8
+export LANG=en_US.UTF-8
 export EDITOR=vim
 export PAGER=less
 export LESS=-R
