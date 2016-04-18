@@ -2,10 +2,10 @@ Compression yes
 GSSAPIAuthentication no
 PasswordAuthentication no
 IdentitiesOnly yes
+ForwardAgent no
 
 Host github.com gist.github.com
     IdentityFile ~/.ssh/github.key
-    PasswordAuthentication yes
     ControlMaster auto
     ControlPath /tmp/%r.%h.%p.sock
     ControlPersist 30m
