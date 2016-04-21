@@ -5,13 +5,15 @@ import time
 
 
 def main():
-    if len(sys.argv) != 2 or not sys.argv[1]:
+    if len(sys.argv) == 1:
         write('usage: %s <duration>\n' % sys.argv[0], sys.stderr)
         exit(1)
     try:
-        timer(sys.argv[1])
+        duration_str = ' '.join(sys.argv[1:])
+        timer(duration_str)
     except KeyboardInterrupt:
         write('\n')
+        exit(1)
     except ValueError as err:
         write('error: %s\n' % err, sys.stderr)
         exit(1)
@@ -40,6 +42,8 @@ def parse_duration(duration_str):
         duration *= 60
     elif suffix in ('h', 'hour', 'hours'):
         duration *= 3600
+    elif suffix in ('d', 'day', 'days'):
+        duration *= 86400
     else:
         raise ValueError('unknown duration suffix "%s"' % suffix)
     return duration
