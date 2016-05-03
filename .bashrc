@@ -1,3 +1,3 @@
 alias ll="ls -lh"
-alias gs="git status --short --branch"
+alias gs="git s"
 alias sha256="openssl dgst -hex -sha256"

@@ -3,6 +3,7 @@
     email = cohara87@gmail.com
     signingkey = 87C50701
 [alias]
+    s = status --short --branch
     lg = log -50 --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     diff = diff --color
     wd = diff --color-words
