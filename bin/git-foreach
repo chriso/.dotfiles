@@ -1,0 +1,20 @@
+#!/bin/bash
+
+list_repos() {
+  TOP_DIR="$1"
+  ls -1 "$TOP_DIR" | while read REPO_NAME; do
+    REPO_DIR="$TOP_DIR/$REPO_NAME"
+    [[ -d "$REPO_DIR" ]] || continue
+    [[ -d "$REPO_DIR/.git" ]] || continue
+    echo $REPO_DIR
+  done
+}
+
+list_repos "$(pwd)" | while read REPO_DIR; do
+  export GIT_DIR="$REPO_DIR/.git"
+  export GIT_WORK_TREE="$REPO_DIR"
+
+  echo $REPO_DIR
+  git $@
+  echo
+done
