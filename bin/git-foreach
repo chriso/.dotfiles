@@ -1,20 +1,18 @@
 #!/bin/bash
 
+is_git_dir() {
+  [ -d "$1" ] && [ -d "$1/.git" ]
+}
+
 list_repos() {
-  TOP_DIR="$1"
-  ls -1 "$TOP_DIR" | while read REPO_NAME; do
-    REPO_DIR="$TOP_DIR/$REPO_NAME"
-    [[ -d "$REPO_DIR" ]] || continue
-    [[ -d "$REPO_DIR/.git" ]] || continue
-    echo $REPO_DIR
+  ls -1 "$1" | while read REPO_NAME; do
+    REPO_DIR="$1/$REPO_NAME"
+    is_git_dir "$REPO_DIR" && echo $REPO_DIR
   done
 }
 
 list_repos "$(pwd)" | while read REPO_DIR; do
-  export GIT_DIR="$REPO_DIR/.git"
-  export GIT_WORK_TREE="$REPO_DIR"
-
   echo $REPO_DIR
-  git $@
+  GIT_DIR="$REPO_DIR/.git" GIT_WORK_TREE="$REPO_DIR" git $@
   echo
 done
