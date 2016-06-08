@@ -11,8 +11,8 @@ list_repos() {
   done
 }
 
-list_repos "$(pwd)" | while read REPO_DIR; do
-  echo $REPO_DIR
+list_repos . | while read REPO_DIR; do
+  printf "\e[34m${REPO_DIR}\e[0m\n"
   GIT_DIR="$REPO_DIR/.git" GIT_WORK_TREE="$REPO_DIR" git $@
   echo
 done
