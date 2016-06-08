@@ -59,3 +59,8 @@ au FileType python nmap <Leader>l :! tox -e lint<CR>
 au FileType python nmap <Leader>t :! tox -e py27<CR>
 au FileType python nmap <Leader>k :! tox -e py27 -- -v -s -k $(basename "%")<CR>
 au FileType python nmap <Leader>c :! tox -e py27 -- --cov-report=html<CR>
+
+" setup rust
+au FileType rust nmap <Leader>r :! clear && cargo run --verbose<CR>
+au FileType rust nmap <Leader>t :! clear && cargo test --lib -- $(basename "%" .rs)<CR>
+au FileType rust nmap <Leader>b :! clear && cargo bench --lib -- $(basename "%" .rs)<CR>
