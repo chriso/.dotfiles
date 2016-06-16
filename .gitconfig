@@ -7,8 +7,8 @@
     pending = ! git branch | sed -E 's/[\\* ] (.+)$/\\1/' | grep '^chriso/'
     lg = log -50 --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     diff = diff --color
-    wd = diff --color-words
-    wdc = diff --color-words --cached
+    wd = diff
+    wdc = diff --cached
     todo = grep -n -F -I -e TODO: -e FIXME: -e XXX:
     clean-branches = ! git branch --merged | grep -v \\* | grep -v 'staging\\|production' | xargs -n1 git branch -d
 [core]
@@ -40,3 +40,18 @@
     user = chriso
 [push]
     default = current
+[submodule]
+    fetchJobs = 4
+[interactive]
+    diffFilter = diff-highlight
+[pager]
+    log = diff-highlight | less --tabs=4 -RFX
+    show = diff-highlight | less --tabs=4 -RFX
+    diff = diff-highlight | less --tabs=4 -RFX
+[color "diff-highlight"]
+    oldHighlight = ul
+    oldReset = noul
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
