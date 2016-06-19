@@ -14,10 +14,17 @@ set visualbell t_vb=
 set nobackup
 set nowritebackup
 
+" github.com/junegunn/vim-plug
+call plug#begin()
+Plug 'scrooloose/syntastic'
+Plug 'kien/ctrlp.vim'
+Plug 'fatih/vim-go'
+Plug 'rust-lang/rust'
+Plug 'derekwyatt/vim-scala'
+call plug#end()
+
 " parse .h files as c rather than c++
 let g:c_syntax_for_h = 1
-
-execute pathogen#infect()
 
 filetype plugin indent on
 syntax on
