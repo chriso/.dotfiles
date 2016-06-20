@@ -3,6 +3,9 @@ autoload -Uz colors && colors
 autoload -Uz compinit && compinit
 zstyle ':completion::complete:*' use-cache 1
 
+# key bindings
+bindkey -e
+
 # history
 HISTSIZE=10000
 SAVEHIST=10000
