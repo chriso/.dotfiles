@@ -7,9 +7,6 @@
 [submodule ".vim/plugged/vim-go"]
 	path = .vim/plugged/vim-go
 	url = https://github.com/fatih/vim-go.git
-[submodule ".vim/plugged/rust.vim"]
-	path = .vim/plugged/rust.vim
-	url = https://github.com/rust-lang/rust.vim
 [submodule ".vim/plugged/vim-scala"]
 	path = .vim/plugged/vim-scala
 	url = https://github.com/derekwyatt/vim-scala.git
