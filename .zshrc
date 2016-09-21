@@ -22,7 +22,9 @@ alias gf="git foreach"
 source /usr/local/bin/virtualenvwrapper_lazy.sh
 cd() {
   builtin cd "$@"
-  [[ -f "$PWD"/.zrun ]] && source "$PWD"/.zrun
+  if [[ "$RBENV_SHELL" = "" ]] && [[ -f "$PWD"/.ruby-version ]]; then
+    eval "$(rbenv init -)"
+  fi
 }
 
 # git prompt
