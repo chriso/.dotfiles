@@ -18,7 +18,6 @@ set nowritebackup
 call plug#begin()
 Plug 'scrooloose/syntastic'
 Plug 'kien/ctrlp.vim'
-Plug 'fatih/vim-go'
 Plug 'derekwyatt/vim-scala'
 call plug#end()
 
