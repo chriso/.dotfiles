@@ -21,8 +21,9 @@ Plug 'kien/ctrlp.vim'
 Plug 'derekwyatt/vim-scala'
 call plug#end()
 
-" parse .h files as c rather than c++
+" setup c/c++ syntastic options
 let g:c_syntax_for_h = 1
+let g:syntastic_cpp_compiler_options = '-std=c++11'
 
 filetype plugin indent on
 syntax on
