@@ -46,8 +46,8 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'
 " ruby, html, yaml, bash use 2 spaces for indentation
 au FileType ruby,html,yml,sh setl ts=2 sw=2 sts=2 et
 
-" highlight lines >= 80 width in certain languages
-au FileType python,c,cpp,php match ErrorMsg '\%>79v.\+'
+" highlight lines > 80 width in certain languages
+au FileType python,c,cpp,php match ErrorMsg '\%>80v.\+'
 
 " setup golang
 let g:go_fmt_command = "goimports"
@@ -70,3 +70,6 @@ au FileType python nmap <Leader>c :! tox -e py27 -- --cov-report=html<CR>
 au FileType rust nmap <Leader>r :! clear && cargo run --verbose<CR>
 au FileType rust nmap <Leader>t :! clear && cargo test --lib -- $(basename "%" .rs)<CR>
 au FileType rust nmap <Leader>b :! clear && cargo bench --lib -- $(basename "%" .rs)<CR>
+
+" run make check
+au FileType c,cpp nmap <Leader>c :! make check<CR>
