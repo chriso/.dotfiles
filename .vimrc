@@ -23,7 +23,8 @@ call plug#end()
 
 " setup c/c++ syntastic options
 let g:c_syntax_for_h = 1
-let g:syntastic_cpp_compiler_options = '-std=c++11'
+let g:syntastic_cpp_compiler_options = '-std=c++14'
+au FileType cc setl ts=2 sw=2 sts=2 et
 
 filetype plugin indent on
 syntax on
