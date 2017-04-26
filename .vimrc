@@ -50,27 +50,5 @@ au FileType ruby,html,yml,sh setl ts=2 sw=2 sts=2 et
 " highlight lines > 80 width in certain languages
 au FileType python,c,cpp,php match ErrorMsg '\%>80v.\+'
 
-" setup golang
-let g:go_fmt_command = "goimports"
-au FileType go setl ts=4 sw=4 noet
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
-au FileType go nmap <Leader>d <Plug>(go-doc)
-au FileType go nmap <Leader>v <Plug>(go-vet)
-au FileType go nmap <Leader>l :GoLint<CR>
-
-" setup python
-au FileType python nmap <Leader>l :! tox -e lint<CR>
-au FileType python nmap <Leader>t :! tox -e py27<CR>
-au FileType python nmap <Leader>k :! tox -e py27 -- -v -s -k $(basename "%")<CR>
-au FileType python nmap <Leader>c :! tox -e py27 -- --cov-report=html<CR>
-
-" setup rust
-au FileType rust nmap <Leader>r :! clear && cargo run --verbose<CR>
-au FileType rust nmap <Leader>t :! clear && cargo test --lib -- $(basename "%" .rs)<CR>
-au FileType rust nmap <Leader>b :! clear && cargo bench --lib -- $(basename "%" .rs)<CR>
-
 " run make check
 au FileType c,cpp nmap <Leader>c :! make check<CR>
