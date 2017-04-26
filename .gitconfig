@@ -57,4 +57,4 @@
     newNormal = green bold
     newHighlight = green bold 22
 [stash]
-	showPatch = true
+    showPatch = true
