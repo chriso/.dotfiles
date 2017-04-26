@@ -6,7 +6,3 @@ ForwardAgent no
 
 Host github.com gist.github.com
     IdentityFile ~/.ssh/github.key
-    ControlMaster auto
-    ControlPath /tmp/%r.%h.%p.sock
-    ControlPersist 30m
-    ServerAliveInterval 2m
