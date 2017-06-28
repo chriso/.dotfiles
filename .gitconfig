@@ -23,6 +23,7 @@
     statusHints = false
 [diff]
     mnemonicprefix = true
+    indentHeuristic = on
 [color "branch"]
     current = yellow reverse
     local = yellow
