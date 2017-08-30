@@ -19,6 +19,8 @@ HISTFILE="$HOME/.zhistory"
 setopt inc_append_history hist_expire_dups_first no_nomatch
 bindkey '^R' history-incremental-search-backward
 
+unsetopt prompt_cr prompt_sp
+
 alias ll="ls -lh"
 alias gs="git status --short --branch"
 alias gf="git foreach"

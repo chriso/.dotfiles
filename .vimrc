@@ -18,7 +18,8 @@ set nowritebackup
 call plug#begin()
 Plug 'scrooloose/syntastic'
 Plug 'kien/ctrlp.vim'
-Plug 'derekwyatt/vim-scala'
+" Plug 'fatih/vim-go'
+" Plug 'derekwyatt/vim-scala'
 call plug#end()
 
 " setup c/c++ syntastic options
@@ -52,3 +53,8 @@ au FileType python,c,cpp,php match ErrorMsg '\%>80v.\+'
 
 " run make check
 au FileType c,cpp nmap <Leader>c :! make check<CR>
+
+" golang
+" let g:go_fmt_command = "goimports"
+: au FileType go setl ts=4 sw=4 sts=4 noet
+" au FileType go nmap <Leader>r <Plug>(go-run)
