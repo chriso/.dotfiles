@@ -42,11 +42,6 @@ noremap <C-Right> :bnext<CR>
 " open a file at the last cursor position
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 
-" use 2 spaces for indentation in some cases
-au FileType cpp,ruby,html,yml,sh,javascript setl ts=2 sw=2 sts=2 et
+au FileType cpp,ruby,html,yml,sh,javascript setl sw=2 sts=2
 
-" highlight lines > 80 width in some cases
-au FileType python,c,cpp,php match ErrorMsg '\%>80v.\+'
-
-" shortcuts
-au FileType c,cpp nmap <Leader>c :! make check<CR>
+au FileType go setl noet ts=4
