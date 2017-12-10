@@ -4,9 +4,3 @@
 [submodule ".vim/plugged/ctrlp"]
 	path = .vim/plugged/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule ".vim/plugged/vim-go"]
-	path = .vim/plugged/vim-go
-	url = https://github.com/fatih/vim-go.git
-[submodule ".vim/plugged/vim-scala"]
-	path = .vim/plugged/vim-scala
-	url = https://github.com/derekwyatt/vim-scala.git
