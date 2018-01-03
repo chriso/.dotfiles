@@ -42,6 +42,6 @@ noremap <C-Right> :bnext<CR>
 " open a file at the last cursor position
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 
-au FileType cpp,ruby,html,yml,sh,javascript setl sw=2 sts=2
+au FileType cpp,ruby,html,yml,sh,javascript,json setl sw=2 sts=2
 
 au FileType go setl noet ts=4
