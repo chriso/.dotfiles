@@ -15,9 +15,9 @@
 [core]
     excludesfile = ~/.gitignore
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    pager = less -F -X
+    pager = diff-highlight | less --tabs=4 -RFX
 [color]
-    ui = auto
+    ui = true
     diff = auto
 [advice]
     statusHints = false
@@ -29,11 +29,12 @@
     local = yellow
     remote = green
 [color "diff"]
-    meta = yellow bold
+    meta = yellow
     frag = magenta bold
     old = red bold
     new = green bold
     whitespace = red reverse
+    commit = yellow bold
 [color "status"]
     added = yellow
     changed = green
@@ -44,17 +45,10 @@
     default = current
 [submodule]
     fetchJobs = 4
-[interactive]
-    diffFilter = diff-highlight
-[pager]
-    log = diff-highlight | less --tabs=4 -RFX
-    show = diff-highlight | less --tabs=4 -RFX
-    diff = diff-highlight | less --tabs=4 -RFX
 [color "diff-highlight"]
-    oldHighlight = ul
-    oldReset = noul
     oldNormal = red bold
     oldHighlight = red bold 52
+    oldReset = noul
     newNormal = green bold
     newHighlight = green bold 22
 [stash]
