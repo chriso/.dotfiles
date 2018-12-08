@@ -14,34 +14,31 @@ set visualbell t_vb=
 set nobackup
 set nowritebackup
 
-" github.com/junegunn/vim-plug
+noremap ; :
+
+" enable syntax highlighting
+syntax on
+color desert
+
+" enable file type detection and setup indentation
+filetype plugin indent on
+au FileType cpp,ruby,html,yml,sh,javascript,json setl sw=2 sts=2
+au FileType go setl noet ts=4
+
+" open a file at the last cursor position
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+
+" cycle buffers with Ctrl+arrows
+noremap <C-Left> :bprevious<CR>
+noremap <C-Right> :bnext<CR>
+
+" initialize plugins (github.com/junegunn/vim-plug)
 call plug#begin()
 Plug 'scrooloose/syntastic'
 Plug 'kien/ctrlp.vim'
 call plug#end()
 
-" setup Syntastic
-let g:c_syntax_for_h = 1
-let g:syntastic_cpp_compiler_options = '-std=c++14'
-
-" setup Ctrl+P
-let g:ctrlp_working_path_mode = 'r'
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-
-filetype plugin indent on
-syntax on
-color desert
-noremap ; :
-
-" cycle buffers with ctrl + arrows
-noremap <C-Left> :bprevious<CR>
-noremap <C-Right> :bnext<CR>
-
-" open a file at the last cursor position
-au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
-
-au FileType cpp,ruby,html,yml,sh,javascript,json setl sw=2 sts=2
-
-au FileType go setl noet ts=4
+" use rg (github.com/BurntSushi/ripgrep) for Ctrl-P and :grep
+let g:ctrlp_user_command = 'rg %s --files --color=never'
+let g:ctrlp_use_caching = 0
+set grepprg=rg\ --color=never

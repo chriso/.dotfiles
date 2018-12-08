@@ -16,8 +16,6 @@ HISTFILE="$HOME/.zhistory"
 setopt inc_append_history hist_expire_dups_first no_nomatch
 bindkey '^R' history-incremental-search-backward
 
-alias ll="ls -lh"
-
 PS1="%{$fg_bold[black]%}%~%{$reset_color%} $ "
 
 [ -f "$HOME"/.profile.local ] && source "$HOME"/.profile.local

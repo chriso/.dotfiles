@@ -3,6 +3,3 @@ GSSAPIAuthentication no
 PasswordAuthentication no
 IdentitiesOnly yes
 ForwardAgent no
-
-Host github.com gist.github.com
-    IdentityFile ~/.ssh/github.key
