@@ -1,6 +1,6 @@
 [submodule ".vim/plugged/syntastic"]
 	path = .vim/plugged/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule ".vim/plugged/ctrlp"]
-	path = .vim/plugged/ctrlp
+[submodule ".vim/plugged/ctrlp.vim"]
+	path = .vim/plugged/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
