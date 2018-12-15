@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# adapted from https://gist.github.com/ogavrisevs/2debdcb96d3002a9cbf2
+
+if ! which aws &>/dev/null; then
+  echo "can't find awscli tool"
+  exit 1
+fi
+
+if [ $# -ne 1 ]; then
+  printf "Enter your MFA token: "
+  read MFA_TOKEN
+else
+  MFA_TOKEN=$1
+fi
+
+read AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN <<< \
+$( aws --profile $AWS_MFA_LOGIN_PROFILE sts get-session-token \
+  --duration $AWS_MFA_DURATION  \
+  --serial-number $AWS_MFA_ARN \
+  --token-code $MFA_TOKEN \
+  --output text | awk '{ print $2, $4, $5 }')
+
+[ -z "$AWS_ACCESS_KEY_ID" ] && exit 1
+
+echo
+echo "Credentials:"
+echo
+echo "  export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID"
+echo "  export AWS_SECRET_ACCESS_KEY=\"$AWS_SECRET_ACCESS_KEY\""
+echo "  export AWS_SESSION_TOKEN=\"$AWS_SESSION_TOKEN\""
+echo
+echo "AWS CLI usage:"
+echo
+echo "  aws --profile $AWS_MFA_PROFILE <command>"
+echo
+
+aws --profile $AWS_MFA_PROFILE configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"
+aws --profile $AWS_MFA_PROFILE configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY"
+aws --profile $AWS_MFA_PROFILE configure set aws_session_token "$AWS_SESSION_TOKEN"
