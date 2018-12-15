@@ -35,3 +35,4 @@ PS1="%{$fg_bold[black]%}%~%{$reset_color%} $ "
 
 # Local overlay
 [ -f "$HOME"/.profile.local ] && source "$HOME"/.profile.local
+export PATH=$HOME/.bin:$PATH
