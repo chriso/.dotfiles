@@ -34,7 +34,6 @@ noremap <C-Right> :bnext<CR>
 
 " initialize plugins (github.com/junegunn/vim-plug)
 call plug#begin()
-Plug 'scrooloose/syntastic'
 Plug 'kien/ctrlp.vim'
 call plug#end()
 
