@@ -37,7 +37,7 @@ call plug#begin()
 Plug 'kien/ctrlp.vim'
 call plug#end()
 
-" use rg (github.com/BurntSushi/ripgrep) for Ctrl-P and :grep
+" use ripgrep for Ctrl-P and :grep
 let g:ctrlp_user_command = 'rg %s --files --color=never'
 let g:ctrlp_use_caching = 0
 set grepprg=rg\ --color=never

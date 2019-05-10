@@ -2,7 +2,7 @@ export LANG=en_US.UTF-8
 
 # Setup the editor
 export EDITOR=vim
-bindkey -v
+bindkey -e
 
 # Setup the pager
 export PAGER=less
@@ -25,10 +25,8 @@ bindkey '^R' history-incremental-search-backward
 
 # Setup aliases
 alias ll="ls -lh"
-alias gs="git status --short --branch"
 alias gf="git foreach"
-alias gfp="git foreach pending"
-alias gfs="git foreach status --short --branch"
+alias gs="git s"
 
 # Setup the prompt
 PS1="%{$fg_bold[black]%}%~%{$reset_color%} $ "
