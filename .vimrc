@@ -41,3 +41,7 @@ call plug#end()
 let g:ctrlp_user_command = 'rg %s --files --color=never'
 let g:ctrlp_use_caching = 0
 set grepprg=rg\ --color=never
+
+" exec with <leader>r
+au FileType python nmap <Leader>r :! clear && python "%"<CR>
+au FileType cpp nmap <Leader>r :! clear && c++ "%" -o /tmp/a.out && /tmp/a.out<CR>
