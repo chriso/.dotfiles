@@ -4,13 +4,11 @@
     signingkey = 87C50701
 [alias]
     s = status --short --branch
-    pending = ! git branch | sed -E 's/[\\* ] (.+)$/\\1/' | egrep -v 'master|stage|production'
     cb = ! git checkout master && git pull && git clean-branches
     lg = log -50 --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     diff = diff --color
     wd = diff
     wdc = diff --cached
-    todo = grep -n -F -I -e TODO: -e FIXME: -e XXX:
     clean-branches = ! git branch --merged | grep -v \\* | grep -v 'staging\\|production' | xargs -n1 git branch -d
 [core]
     excludesfile = ~/.gitignore
