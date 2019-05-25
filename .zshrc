@@ -31,6 +31,11 @@ alias gs="git s"
 # Setup the prompt
 PS1="%{$fg_bold[black]%}%~%{$reset_color%} $ "
 
+# Setup Go
+export GOPATH=$HOME/.go
+export GO111MODULE=on
+export PATH=$GOPATH/bin:$PATH
+
 # Local overlay
 [ -f "$HOME"/.profile.local ] && source "$HOME"/.profile.local
 export PATH=$HOME/.bin:$PATH
