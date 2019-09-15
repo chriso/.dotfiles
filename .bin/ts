@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Convert unix timestamps (milliseconds) <=> ISO8601 strings (UTC)
+
+if [ $# -eq 0 ]; then
+  TS=$(python -c "import time; print(int(time.time()*1000))")
+  echo "$TS"
+else
+  TS="$@"
+fi
+
+if echo "$TS" | grep -q -- -; then
+  python -c "import datetime as d; print(int(d.datetime.fromisoformat('$TS'.replace('Z','')).replace(tzinfo=d.timezone.utc).timestamp()*1000))"
+else
+  python -c "import datetime as d; print((d.datetime.utcfromtimestamp($TS/1000).isoformat()+'Z').replace('000Z','Z'))"
+fi
