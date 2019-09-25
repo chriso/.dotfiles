@@ -24,8 +24,7 @@ setopt inc_append_history hist_expire_dups_first no_nomatch
 bindkey '^R' history-incremental-search-backward
 
 # Setup aliases
-alias ll="ls -lh"
-alias gf="git foreach"
+alias ll="ls -lhO"
 alias gs="git s"
 
 # Setup the prompt
