@@ -16,11 +16,11 @@ set nowritebackup
 
 noremap ; :
 
-" enable syntax highlighting
+" syntax highlighting
 syntax on
 color desert
 
-" enable file type detection and setup indentation
+" set indentation
 filetype plugin indent on
 au FileType cpp,ruby,html,yml,sh,javascript,json setl sw=2 sts=2
 au FileType go setl noet ts=4
@@ -32,7 +32,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'
 noremap <C-Left> :bprevious<CR>
 noremap <C-Right> :bnext<CR>
 
-" initialize plugins (github.com/junegunn/vim-plug)
+" init plugins (github.com/junegunn/vim-plug)
 call plug#begin()
 Plug 'kien/ctrlp.vim'
 call plug#end()
@@ -42,6 +42,6 @@ let g:ctrlp_user_command = 'rg %s --files --color=never'
 let g:ctrlp_use_caching = 0
 set grepprg=rg\ --color=never
 
-" exec with <leader>r
+" run with <leader>r
 au FileType python nmap <Leader>r :! clear && python "%"<CR>
 au FileType cpp nmap <Leader>r :! clear && c++ "%" -o /tmp/a.out && /tmp/a.out<CR>
