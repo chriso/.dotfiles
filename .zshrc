@@ -12,7 +12,7 @@ zstyle ':completion::complete:*' use-cache 1
 # history
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=.zhistory
+HISTFILE=$HOME/.zhistory
 setopt inc_append_history hist_expire_dups_first no_nomatch
 bindkey ^R history-incremental-search-backward
 
