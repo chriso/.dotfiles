@@ -36,5 +36,4 @@ export GO111MODULE=on
 export PATH=$GOPATH/bin:$PATH
 
 # Local overlay
-[ -f "$HOME"/.profile.local ] && source "$HOME"/.profile.local
 export PATH=$HOME/.bin:$PATH
