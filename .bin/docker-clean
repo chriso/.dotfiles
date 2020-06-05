@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# Remove all processes
-docker ps -a | grep -v CONTAINER | awk '{ print $1 }' | xargs docker rm -f
-
-# Remove anonymous/orphaned images
-docker images | grep none | awk '{ print $3 }' | xargs docker rmi
