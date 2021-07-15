@@ -43,5 +43,5 @@ let g:ctrlp_use_caching = 0
 set grepprg=rg\ --color=never
 
 " run with <leader>r
-au FileType python nmap <Leader>r :! clear && python "%"<CR>
+au FileType python nmap <Leader>r :! clear && python3 "%"<CR>
 au FileType cpp nmap <Leader>r :! clear && c++ "%" -o /tmp/a.out && /tmp/a.out<CR>

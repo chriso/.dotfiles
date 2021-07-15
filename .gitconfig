@@ -51,3 +51,5 @@
     newHighlight = green bold 22
 [stash]
     showPatch = true
+[url "git@github.com:"]
+	insteadOf = https://github.com/
