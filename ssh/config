@@ -1,5 +1,0 @@
-Compression yes
-GSSAPIAuthentication no
-PasswordAuthentication no
-IdentitiesOnly yes
-ForwardAgent no
