@@ -1,22 +1,15 @@
 [user]
     name = Chris O'Hara
     email = cohara87@gmail.com
-    signingkey = 87C50701
 [alias]
-    s = status --short --branch
-    cb = ! git checkout master && git pull && git clean-branches
     lg = log -50 --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    diff = diff --color
     wd = diff
     wdc = diff --cached
-    clean-branches = ! git branch --merged | grep -v \\* | grep -v 'staging\\|production' | xargs -n1 git branch -d
 [core]
-    excludesfile = ~/.gitignore
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    pager = diff-highlight | less --tabs=4 -RFX
+    excludesFile = ~/.gitignore
 [color]
     ui = true
-    diff = auto
 [advice]
     statusHints = false
 [diff]
@@ -37,21 +30,13 @@
     added = yellow
     changed = green
     untracked = cyan
-[github]
-    user = chriso
 [push]
     default = current
 [submodule]
-    fetchJobs = 4
-[color "diff-highlight"]
-    oldNormal = red bold
-    oldHighlight = red bold 52
-    oldReset = noul
-    newNormal = green bold
-    newHighlight = green bold 22
+    fetchJobs = 8
 [stash]
     showPatch = true
-[url "git@github.com:"]
-	insteadOf = https://github.com/
 [init]
-	defaultBranch = main
+    defaultBranch = main
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/

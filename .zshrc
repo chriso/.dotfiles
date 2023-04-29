@@ -1,39 +1,41 @@
-export LANG=en_US.UTF-8
+clear
+
+autoload -U colors && colors
+autoload -U compinit && compinit -d /tmp/zcompdump
+
+PS1="%{$fg_bold[yellow]%}%~%{$reset_color%} $ "
+
 export EDITOR=vim
 export PAGER=less
 export LESS=-R
 export CLICOLOR=1
 
-bindkey -e
-autoload -U colors && colors
-autoload -U compinit && compinit
-zstyle ':completion::complete:*' use-cache 1
-
-ulimit -n 8192
-
-# history
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=$HOME/.zhistory
+HISTFILE=~/.history
 setopt inc_append_history hist_expire_dups_first no_nomatch
 bindkey ^R history-incremental-search-backward
 
-# prompt
-PS1="%{$fg_bold[black]%}%~%{$reset_color%} $ "
-
-# aliases
+# Aliases
 alias ll="ls -lah"
 alias gs="git status --short --branch"
-alias gf="git foreach"
 
-# jump command
-goto() { cd ~/Documents/$1 &> /dev/null || (cd ~/Documents && git clone git@github.com:segmentio/$1.git && cd ~/Documents/$1) || echo "repo @ $1 does not exist" }
-_goto() { compadd $(find ~/Documents -maxdepth 1 -mindepth 1 | sed "s|$HOME/Documents/||") }
-compdef _goto goto
+# Homebrew
+export HOMEBREW_PREFIX="/opt/homebrew";
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+export HOMEBREW_REPOSITORY="/opt/homebrew";
+export HOMEBREW_NO_INSTALL_CLEANUP=1
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_AUTOREMOVE=1
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH";
+export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 
-# golang
+# Go
 export GOPATH=$HOME/.go
-export PATH=$GOPATH/bin:$PATH
+export PATH="$PATH:$GOPATH/bin"
 
-# local overlay
-export PATH=$HOME/.bin:$PATH
+# Docker
+export PATH="$PATH:$HOME/.docker/bin"
+
